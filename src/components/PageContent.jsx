@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Breadcrumb } from "antd";
+import { Layout, Breadcrumb, Button } from "antd";
 
 const { Content } = Layout;
 
@@ -14,7 +14,7 @@ export default function PageContent() {
           minHeight: 300
         }}
       >
-        Content of the page
+        <Button type="primary">Test</Button>
       </Content>
     </Layout>
   );

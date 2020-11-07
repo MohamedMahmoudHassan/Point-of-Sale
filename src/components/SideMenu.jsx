@@ -5,7 +5,7 @@ import {
   UserOutlined,
   LaptopOutlined,
   NotificationOutlined,
-  AlertOutlined,
+  AlertOutlined
 } from "@ant-design/icons";
 
 const { SubMenu } = Menu;

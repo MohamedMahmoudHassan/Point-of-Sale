@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Row, Col, Layout, Menu } from "antd";
 import LangController from "./LangController";
 import { useTranslation } from "react-i18next";
 
@@ -11,15 +11,18 @@ export default function Navbar() {
   return (
     <div>
       <Header className="header">
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-          <Menu.Item key="1">{t("nav.1")}</Menu.Item>
-          <Menu.Item key="2">{t("nav.2")}</Menu.Item>
-          <Menu.Item key="3">{t("nav.3")}</Menu.Item>
-          <Menu.Item key="4">
+        <Row>
+          <Col flex="auto">
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+              <Menu.Item key="1">{t("nav.1")}</Menu.Item>
+              <Menu.Item key="2">{t("nav.2")}</Menu.Item>
+              <Menu.Item key="3">{t("nav.3")}</Menu.Item>
+            </Menu>
+          </Col>
+          <Col flex="100px">
             <LangController />
-          </Menu.Item>
-        </Menu>
+          </Col>
+        </Row>
       </Header>
     </div>
   );

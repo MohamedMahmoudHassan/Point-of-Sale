@@ -3,5 +3,16 @@
     "1": "Title 1",
     "2": "Title 2",
     "3": "Title 3"
+  },
+  "items": {
+    "items": "Items",
+    "itemsList": {
+      "itemsList": "Items List"
+    },
+    "categoriesList": {
+      "categoriesList": "Categories List",
+      "name": "Name",
+      "noOfItems": "No. of Items"
+    }
   }
 }

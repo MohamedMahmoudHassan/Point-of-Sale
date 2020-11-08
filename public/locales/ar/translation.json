@@ -3,5 +3,16 @@
     "1": "عنوان 1",
     "2": "عنوان 2",
     "3": "عنوان 3"
+  },
+  "items": {
+    "items": "العناصر",
+    "itemsList": {
+      "itemsList": "قائمة العناصر"
+    },
+    "categoriesList": {
+      "categoriesList": "قائمة التصنيفات",
+      "name": "الاسم",
+      "noOfItems": "عدد العناصر"
+    }
   }
 }

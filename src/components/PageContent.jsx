@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
+import CategoriesList from "./CategoriesList";
 
 const { Content } = Layout;
 
@@ -13,7 +14,9 @@ export default function PageContent() {
           margin: 0,
           minHeight: 300
         }}
-      />
+      >
+        <CategoriesList />
+      </Content>
     </Layout>
   );
 }

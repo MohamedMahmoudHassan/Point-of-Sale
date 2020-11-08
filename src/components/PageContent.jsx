@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Breadcrumb, Button } from "antd";
+import { Layout } from "antd";
 
 const { Content } = Layout;
 
@@ -13,9 +13,7 @@ export default function PageContent() {
           margin: 0,
           minHeight: 300
         }}
-      >
-        <Button type="primary">Test</Button>
-      </Content>
+      />
     </Layout>
   );
 }

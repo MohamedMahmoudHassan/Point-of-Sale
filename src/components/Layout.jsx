@@ -4,12 +4,15 @@ import i18n from "i18next";
 import Navbar from "./Navbar";
 import SideMenu from "./SideMenu";
 import PageContent from "./PageContent";
+import languages from "../config/languages";
 import StyleDirectionContext from "./context/styleDirectionContext";
 
 export default function AppLayout() {
   const [direction, setDirection] = useState();
 
-  i18n.on("initialized", () => setDirection(i18n.language === "ar" ? "rtl" : "ltr"));
+  i18n.on("initialized", () =>
+    setDirection(languages.find(lang => lang.abb === i18n.language).direction)
+  );
 
   return (
     <StyleDirectionContext.Provider

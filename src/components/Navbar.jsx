@@ -16,9 +16,11 @@ export default function Navbar() {
           <Menu.Item key="1">{t("nav.1")}</Menu.Item>
           <Menu.Item key="2">{t("nav.2")}</Menu.Item>
           <Menu.Item key="3">{t("nav.3")}</Menu.Item>
+          <Menu.Item key="4">
+            <LangController />
+          </Menu.Item>
         </Menu>
       </Header>
-      <LangController />
     </div>
   );
 }

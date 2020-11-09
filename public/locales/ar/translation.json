@@ -7,7 +7,11 @@
   "items": {
     "items": "العناصر",
     "itemsList": {
-      "itemsList": "قائمة العناصر"
+      "itemsList": "قائمة العناصر",
+      "name": "الاسم",
+      "category": "التصنيف",
+      "price": "السعر",
+      "available": "متوفر"
     },
     "categoriesList": {
       "categoriesList": "قائمة التصنيفات",

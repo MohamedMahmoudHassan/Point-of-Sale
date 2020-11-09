@@ -7,7 +7,11 @@
   "items": {
     "items": "Items",
     "itemsList": {
-      "itemsList": "Items List"
+      "itemsList": "Items List",
+      "name": "Name",
+      "category": "Category",
+      "price": "Price",
+      "available": "Available"
     },
     "categoriesList": {
       "categoriesList": "Categories List",

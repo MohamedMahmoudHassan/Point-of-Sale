@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout } from "antd";
 import CategoriesList from "./CategoriesList";
+import ItemsList from "./ItemsList";
 
 const { Content } = Layout;
 
@@ -15,7 +16,7 @@ export default function PageContent() {
           minHeight: 300
         }}
       >
-        <CategoriesList />
+        <ItemsList />
       </Content>
     </Layout>
   );

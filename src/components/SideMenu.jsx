@@ -1,27 +1,16 @@
 import React from "react";
 import { Layout, Menu } from "antd";
-import { useTranslation } from "react-i18next";
-import {
-  ShopOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-  AlertOutlined
-} from "@ant-design/icons";
+import { LaptopOutlined, NotificationOutlined, AlertOutlined } from "@ant-design/icons";
+import ItemsSubMenu from "./ItemsSubMenu";
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 export default function SideMenu() {
-  const { t } = useTranslation();
-
   return (
     <Sider width={200} className="site-layout-background">
       <Menu mode="inline" defaultSelectedKeys={["1"]} style={{ height: "100%", borderRight: 0 }}>
-        <SubMenu key="items" icon={<ShopOutlined />} title={t("items.items")}>
-          <Menu.Item key="itemsList">{t("items.itemsList.itemsList")}</Menu.Item>
-          <Menu.Item key="categories">{t("items.categoriesList.categoriesList")}</Menu.Item>
-        </SubMenu>
-
+        <ItemsSubMenu />
         <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
           <Menu.Item key="5">option5</Menu.Item>
           <Menu.Item key="6">option6</Menu.Item>

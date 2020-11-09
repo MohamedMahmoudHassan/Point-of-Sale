@@ -1,4 +1,5 @@
 const CracoLessPlugin = require("craco-less");
+const colors = require("./src/config/colors");
 
 module.exports = {
   plugins: [
@@ -7,7 +8,7 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: { "@primary-color": "#bc180f" },
+            modifyVars: { "@primary-color": colors.primary },
             javascriptEnabled: true
           }
         }

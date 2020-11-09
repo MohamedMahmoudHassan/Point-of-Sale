@@ -3,6 +3,7 @@ import { Layout, Menu } from "antd";
 import ItemsSubMenu from "./ItemsSubMenu";
 import HomeSubMenu from "./HomeSubMenu";
 import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
+import colors from "../config/colors";
 
 const { Sider } = Layout;
 
@@ -16,6 +17,7 @@ export default function SideMenu() {
       trigger={null}
       collapsible
       collapsed={isCollapsed}
+      style={{ backgroundColor: "white" }}
     >
       <Menu mode="inline" defaultSelectedKeys={["1"]} style={{ height: "100%", borderRight: 0 }}>
         <HomeSubMenu />

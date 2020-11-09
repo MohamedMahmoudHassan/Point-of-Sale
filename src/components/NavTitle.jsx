@@ -8,8 +8,12 @@ export default function NavTitle() {
   return (
     <h1 style={{ color: "white" }}>
       <Switch>
-        <Route path="/items/categories" component={() => t("items.itemsList.itemsList")} />
-        <Route path="/items" component={() => t("items.categoriesList.categoriesList")} />
+        <Route
+          path="/items/categories"
+          component={() => t("items.categoriesList.categoriesList")}
+        />
+        <Route path="/items" component={() => t("items.itemsList.itemsList")} />
+        <Route path="/" component={() => t("home")} />
       </Switch>
     </h1>
   );

@@ -1,9 +1,7 @@
 import React from "react";
 import { Layout, Menu } from "antd";
-import { LaptopOutlined, NotificationOutlined, AlertOutlined } from "@ant-design/icons";
 import ItemsSubMenu from "./ItemsSubMenu";
 
-const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 export default function SideMenu() {

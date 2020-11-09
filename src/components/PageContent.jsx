@@ -2,6 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 import CategoriesList from "./CategoriesList";
 import ItemsList from "./ItemsList";
+import {Switch, Route } from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -16,7 +17,10 @@ export default function PageContent() {
           minHeight: 300
         }}
       >
-        <ItemsList />
+        <Switch>
+          <Route path="/items/categories" component={CategoriesList} />
+          <Route path="/items" component={ItemsList} />
+        </Switch>
       </Content>
     </Layout>
   );

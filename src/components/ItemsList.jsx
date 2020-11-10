@@ -9,23 +9,23 @@ export default function ItemsList() {
     {
       title: t("items.itemsList.name"),
       dataIndex: "name",
-      sorter: { compare: (a, b) => a.name < b.name }
+      sorter: { compare: (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) }
     },
     {
       title: t("items.itemsList.category"),
       dataIndex: "category",
       filters: [{ text: "shirts", value: "shirts" }, { text: "pants", value: "pants" }],
-      onFilter: (value, record) => record.category.indexOf(value) === 0
+      onFilter: (value, record) => record.category === value
     },
     {
       title: t("items.itemsList.price"),
       dataIndex: "price",
-      sorter: { compare: (a, b) => a.price < b.price }
+      sorter: { compare: (a, b) => a.price - b.price }
     },
     {
       title: t("items.itemsList.available"),
       dataIndex: "available",
-      sorter: { compare: (a, b) => a.available < b.available }
+      sorter: { compare: (a, b) => a.available - b.available }
     }
   ];
 
@@ -47,7 +47,7 @@ export default function ItemsList() {
     {
       key: "3",
       name: "Green Basic",
-      category: "Shirts",
+      category: "shirts",
       price: 100,
       available: 22
     }

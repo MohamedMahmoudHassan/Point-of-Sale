@@ -9,7 +9,7 @@ export default function CategoriesList() {
     {
       title: t("items.categoriesList.name"),
       dataIndex: "name",
-      sorter: { compare: (a, b) => a.name < b.name }
+      sorter: { compare: (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) }
     },
     {
       title: t("items.categoriesList.noOfItems"),

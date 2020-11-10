@@ -3,7 +3,6 @@ import { Layout, Menu } from "antd";
 import ItemsSubMenu from "./ItemsSubMenu";
 import HomeSubMenu from "./HomeSubMenu";
 import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
-import colors from "../config/colors";
 
 const { Sider } = Layout;
 

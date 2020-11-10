@@ -56,7 +56,7 @@ export default function ItemsList() {
 
   return (
     <div>
-      <AddButton title="Items" to="items/new" />
+      <AddButton title={t("items.itemsList.addItem")} to="items/new" />
       <Table columns={columns} dataSource={data} />
     </div>
   );

@@ -3,6 +3,7 @@
   "items": {
     "items": "Items",
     "itemsList": {
+      "addItem": "Add Item",
       "itemsList": "Items List",
       "name": "Name",
       "category": "Category",
@@ -10,9 +11,14 @@
       "inStock": "In Stock"
     },
     "categoriesList": {
+      "addCategory": "Add Category",
       "categoriesList": "Categories List",
       "name": "Name",
       "noOfItems": "No. of Items"
     }
+  },
+  "form": {
+    "save": "Save",
+    "cancel": "Cancel"
   }
 }

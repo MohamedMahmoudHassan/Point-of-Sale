@@ -2,9 +2,11 @@ import React from "react";
 import { Button, Row, Col } from "antd";
 import colors from "../config/colors";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function FormControllers() {
   const history = useHistory();
+  const { t } = useTranslation();
 
   const handleNav = () => {
     history.goBack();
@@ -14,7 +16,7 @@ export default function FormControllers() {
     <Row justify="end">
       <Col>
         <Button type="primary" htmlType="submit" onClick={handleNav}>
-          Save
+          {t("form.save")}
         </Button>
       </Col>
       <Col>
@@ -23,7 +25,7 @@ export default function FormControllers() {
           style={{ color: colors.primary, borderColor: colors.primary, marginLeft: "8px" }}
           onClick={handleNav}
         >
-          Cancel
+          {t("form.cancel")}
         </Button>
       </Col>
     </Row>

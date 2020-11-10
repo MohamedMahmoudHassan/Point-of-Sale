@@ -12,7 +12,7 @@ export default function AddButton({ title, to }) {
   return (
     <Button type="primary" shape="round" style={{ marginBottom: "18px" }} onClick={handleClick}>
       <PlusCircleOutlined />
-      Add {title}
+      {title}
     </Button>
   );
 }

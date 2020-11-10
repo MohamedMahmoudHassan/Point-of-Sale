@@ -39,7 +39,7 @@ export default function CategoriesList() {
 
   return (
     <div>
-      <AddButton title="Category" to="categories/new" />
+      <AddButton title={t("items.categoriesList.addCategory")} to="categories/new" />
       <Table columns={columns} dataSource={data} />
     </div>
   );

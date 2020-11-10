@@ -3,6 +3,7 @@
   "items": {
     "items": "العناصر",
     "itemsList": {
+      "addItem": "إضافة عنصر",
       "itemsList": "قائمة العناصر",
       "name": "الاسم",
       "category": "التصنيف",
@@ -10,9 +11,14 @@
       "inStock": "في المخزن"
     },
     "categoriesList": {
+      "addCategory": "إضافة تصنيف",
       "categoriesList": "قائمة التصنيفات",
       "name": "الاسم",
       "noOfItems": "عدد العناصر"
     }
+  },
+  "form": {
+    "save": "حفظ",
+    "cancel": "إلغاء"
   }
 }

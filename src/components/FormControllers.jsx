@@ -19,10 +19,11 @@ export default function FormControllers() {
           {t("form.save")}
         </Button>
       </Col>
+      <Col flex="8px" />
       <Col>
         <Button
           htmlType="button"
-          style={{ color: colors.primary, borderColor: colors.primary, marginLeft: "8px" }}
+          style={{ color: colors.primary, borderColor: colors.primary }}
           onClick={handleNav}
         >
           {t("form.cancel")}

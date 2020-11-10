@@ -9,6 +9,7 @@ export default function NewCategory() {
   return (
     <div className="form-container">
       <Form name="newCategory">
+        <h2>{t("items.categoriesList.addCategory")}</h2>
         <Form.Item
           label={t("items.categoriesList.name")}
           name="categoryName"

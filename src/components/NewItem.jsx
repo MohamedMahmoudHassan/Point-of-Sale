@@ -7,12 +7,13 @@ const { Option } = Select;
 
 export default function NewItem() {
   const { t } = useTranslation();
-  const layout = { labelCol: { span: 6 } };
+  const layout = { labelCol: { span: 5 } };
   const categories = [{ text: "shirts", value: "shirts" }, { text: "pants", value: "pants" }];
 
   return (
     <div className="form-container">
       <Form {...layout} name="newItem">
+        <h2>{t("items.itemsList.addItem")}</h2>
         <Form.Item
           label={t("items.itemsList.name")}
           name="itemName"

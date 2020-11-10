@@ -7,7 +7,7 @@
       "name": "الاسم",
       "category": "التصنيف",
       "price": "السعر",
-      "available": "متوفر"
+      "inStock": "في المخزن"
     },
     "categoriesList": {
       "categoriesList": "قائمة التصنيفات",

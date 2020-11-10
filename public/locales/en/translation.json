@@ -7,7 +7,7 @@
       "name": "Name",
       "category": "Category",
       "price": "Price",
-      "available": "Available"
+      "inStock": "In Stock"
     },
     "categoriesList": {
       "categoriesList": "Categories List",

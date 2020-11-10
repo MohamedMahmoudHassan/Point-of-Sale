@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "antd";
 import { useTranslation } from "react-i18next";
+import AddButton from "./AddButton";
 
 export default function CategoriesList() {
   const { t } = useTranslation();
@@ -36,5 +37,10 @@ export default function CategoriesList() {
     }
   ];
 
-  return <Table columns={columns} dataSource={data} />;
+  return (
+    <div>
+      <AddButton title="Category" to="categories/new" />
+      <Table columns={columns} dataSource={data} />
+    </div>
+  );
 }

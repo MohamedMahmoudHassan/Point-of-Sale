@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Row, Popconfirm } from "antd";
+import { Button, Col, Row, Popconfirm, message } from "antd";
 import { PlusCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import colors from "../config/colors";
@@ -9,6 +9,12 @@ export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handl
 
   const handleAdd = () => {
     history.push(newNav);
+  };
+
+  const onDelete = async () => {
+    message.loading({ content: "Deleting...", key: "updatable" });
+    await handleDelete();
+    message.success({ content: "Deleted successfully!", key: "updatable", duration: 2 });
   };
 
   return (
@@ -23,7 +29,7 @@ export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handl
         {selectedRowsKeys.length > 0 && (
           <Popconfirm
             title={"Are you sure you want to delete?"}
-            onConfirm={handleDelete}
+            onConfirm={onDelete}
             okText="Yes"
             cancelText="No"
           >

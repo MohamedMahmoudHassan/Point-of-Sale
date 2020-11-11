@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { message, Table } from "antd";
+import { Table } from "antd";
 import { useTranslation } from "react-i18next";
 import categoriesAPI from "../api/categories";
 import addKey from "../utils/addKey";
@@ -32,12 +32,6 @@ export default function CategoriesList() {
     setSelectedRowsKeys([]);
   };
 
-  const handleDelete = async () => {
-    message.loading({ content: "Deleting categories...", key: "updatable" });
-    await deleteCategories();
-    message.success({ content: "Categories deleted successfully!", key: "updatable", duration: 2 });
-  };
-
   const columns = [
     {
       title: t("items.categoriesList.name"),
@@ -57,7 +51,7 @@ export default function CategoriesList() {
         addTitle={t("items.categoriesList.addCategory")}
         newNav="categories/new"
         selectedRowsKeys={selectedRowsKeys}
-        handleDelete={handleDelete}
+        handleDelete={deleteCategories}
       />
       <Table
         columns={columns}

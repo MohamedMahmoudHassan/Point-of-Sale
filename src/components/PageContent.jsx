@@ -5,6 +5,7 @@ import ItemsList from "./ItemsList";
 import { Switch, Route } from "react-router-dom";
 import NewCategory from "./NewCategory";
 import NewItem from "./NewItem";
+import Home from "./Home";
 
 const { Content } = Layout;
 
@@ -24,6 +25,7 @@ export default function PageContent() {
           <Route path="/items/categories" component={CategoriesList} />
           <Route path="/items/new" component={NewItem} />
           <Route path="/items" component={ItemsList} />
+          <Route path="/" component={Home} />
         </Switch>
       </Content>
     </Layout>

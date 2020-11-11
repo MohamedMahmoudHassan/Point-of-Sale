@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, Popconfirm } from "antd";
 import { PlusCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import colors from "../config/colors";
@@ -21,13 +21,16 @@ export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handl
       <Col flex="8px" />
       <Col>
         {selectedRowsKeys.length > 0 && (
-          <Button
-            shape="round"
-            style={{ color: colors.primary, borderColor: colors.primary }}
-            onClick={handleDelete}
+          <Popconfirm
+            title={"Are you sure you want to delete?"}
+            onConfirm={handleDelete}
+            okText="Yes"
+            cancelText="No"
           >
-            <DeleteOutlined /> Delete
-          </Button>
+            <Button shape="round" style={{ color: colors.primary, borderColor: colors.primary }}>
+              <DeleteOutlined /> Delete
+            </Button>
+          </Popconfirm>
         )}
       </Col>
     </Row>

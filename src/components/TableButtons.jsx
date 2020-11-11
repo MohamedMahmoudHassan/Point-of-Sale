@@ -4,15 +4,11 @@ import { PlusCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import colors from "../config/colors";
 
-export default function TableButtons({ addTitle, newNav, selectedRowsKeys }) {
+export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handleDelete }) {
   const history = useHistory();
 
   const handleAdd = () => {
     history.push(newNav);
-  };
-
-  const handleDelete = () => {
-    console.log(selectedRowsKeys.length);
   };
 
   return (

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "antd";
 import { useTranslation } from "react-i18next";
-import AddButton from "./AddButton";
 import categoriesAPI from "../api/categories";
 import addKey from "../utils/addKey";
+import TableButtons from "./TableButtons";
 
 export default function CategoriesList() {
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedRowsKeys, setSelectedRowsKeys] = useState([]);
 
   useEffect(() => {
     populateCategories();
@@ -17,6 +19,16 @@ export default function CategoriesList() {
     const response = await categoriesAPI.getCategories();
     const data = addKey(response.data);
     setCategories(data);
+    setLoading(false);
+  };
+
+  const deleteCategories = async () => {
+    await categoriesAPI.deleteCategories(selectedRowsKeys);
+
+    const newCategories = categories.filter(
+      category => selectedRowsKeys.indexOf(category.key) === -1
+    );
+    setCategories(newCategories);
   };
 
   const columns = [
@@ -34,8 +46,21 @@ export default function CategoriesList() {
 
   return (
     <div>
-      <AddButton title={t("items.categoriesList.addCategory")} to="categories/new" />
-      <Table columns={columns} dataSource={categories} />
+      <TableButtons
+        addTitle={t("items.categoriesList.addCategory")}
+        newNav="categories/new"
+        selectedRowsKeys={selectedRowsKeys}
+        handleDelete={deleteCategories}
+      />
+      <Table
+        columns={columns}
+        dataSource={categories}
+        loading={loading}
+        rowSelection={{
+          type: "checkbox",
+          onChange: selectedRowKeys => setSelectedRowsKeys(selectedRowKeys)
+        }}
+      />
     </div>
   );
 }

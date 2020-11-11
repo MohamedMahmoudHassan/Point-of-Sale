@@ -29,6 +29,7 @@ export default function CategoriesList() {
       category => selectedRowsKeys.indexOf(category.key) === -1
     );
     setCategories(newCategories);
+    setSelectedRowsKeys([]);
   };
 
   const columns = [

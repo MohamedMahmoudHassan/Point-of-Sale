@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "antd";
 import { useTranslation } from "react-i18next";
-import AddButton from "./AddButton";
+import TableButtons from "./TableButtons";
 
 export default function ItemsList() {
   const { t } = useTranslation();
@@ -56,7 +56,11 @@ export default function ItemsList() {
 
   return (
     <div>
-      <AddButton title={t("items.itemsList.addItem")} to="items/new" />
+      <TableButtons
+        addTitle={t("items.itemsList.addItem")}
+        newNav="items/new"
+        selectedRowsKeys={[]}
+      />
       <Table columns={columns} dataSource={data} />
     </div>
   );

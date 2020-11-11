@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "antd";
 import { useTranslation } from "react-i18next";
 import AddButton from "./AddButton";
+import categoriesAPI from "../api/categories";
+import addKey from "../utils/addKey";
 
 export default function CategoriesList() {
   const { t } = useTranslation();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    populateCategories();
+  });
+
+  const populateCategories = async () => {
+    const response = await categoriesAPI.getCategories();
+    const data = addKey(response.data);
+    setCategories(data);
+  };
 
   const columns = [
     {
@@ -19,28 +32,10 @@ export default function CategoriesList() {
     }
   ];
 
-  const data = [
-    {
-      key: "1",
-      name: "Shirts",
-      noOfItems: 5
-    },
-    {
-      key: "2",
-      name: "Pants",
-      noOfItems: 3
-    },
-    {
-      key: "3",
-      name: "Caps",
-      noOfItems: 10
-    }
-  ];
-
   return (
     <div>
       <AddButton title={t("items.categoriesList.addCategory")} to="categories/new" />
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={categories} />
     </div>
   );
 }

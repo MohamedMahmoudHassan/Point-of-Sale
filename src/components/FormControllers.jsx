@@ -15,7 +15,7 @@ export default function FormControllers() {
   return (
     <Row justify="end">
       <Col>
-        <Button type="primary" htmlType="submit" onClick={handleNav}>
+        <Button type="primary" htmlType="submit" >
           {t("form.save")}
         </Button>
       </Col>

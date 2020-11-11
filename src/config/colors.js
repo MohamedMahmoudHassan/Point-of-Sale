@@ -1,3 +1,3 @@
 export default {
-  primary: "#1979a9"
+  primary: "#883c78"
 };

@@ -2,25 +2,19 @@ import React from "react";
 import { Button, Col, Row, Popconfirm, message } from "antd";
 import { PlusCircleOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
-import colors from "../config/colors";
+import colors from "../../config/colors";
 import { useTranslation } from "react-i18next";
 
-export default function TableButtons({
-  addTitle,
-  newNav,
-  editNav,
-  selectedRowsKeys,
-  handleDelete
-}) {
+export default function TableButtons({ newTitle, navTo, selectedRowsKeys, handleDelete }) {
   const history = useHistory();
   const { t } = useTranslation();
 
   const handleAdd = () => {
-    history.push(newNav);
+    history.push(`${navTo}/new`);
   };
 
   const handleEdit = () => {
-    history.push(`${editNav}/${selectedRowsKeys[0]}`);
+    history.push(`${navTo}/edit/${selectedRowsKeys[0]}`);
   };
 
   const onDelete = async () => {
@@ -33,7 +27,7 @@ export default function TableButtons({
     <Row>
       <Col>
         <Button type="primary" shape="round" style={{ marginBottom: "18px" }} onClick={handleAdd}>
-          <PlusCircleOutlined /> {addTitle}
+          <PlusCircleOutlined /> {newTitle}
         </Button>
       </Col>
 

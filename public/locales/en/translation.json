@@ -22,6 +22,7 @@
     "cancel": "Cancel"
   },
   "tableButtons": {
+    "edit": "Edit",
     "delete": "Delete",
     "deleteConfirm": "Are you sure you want to delete?",
     "ok": "Yes",

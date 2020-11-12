@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Col, Row, Popconfirm, message } from "antd";
-import { PlusCircleOutlined, DeleteOutlined } from "@ant-design/icons";
+import { PlusCircleOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import colors from "../config/colors";
 import { useTranslation } from "react-i18next";
@@ -26,7 +26,23 @@ export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handl
           <PlusCircleOutlined /> {addTitle}
         </Button>
       </Col>
+
       <Col flex="8px" />
+
+      <Col>
+        {selectedRowsKeys.length === 1 && (
+          <Button
+            shape="round"
+            style={{ color: colors.primary, borderColor: colors.primary }}
+            onClick={handleAdd}
+          >
+            <EditOutlined /> {t("tableButtons.edit")}
+          </Button>
+        )}
+      </Col>
+
+      <Col flex="8px" />
+
       <Col>
         {selectedRowsKeys.length > 0 && (
           <Popconfirm

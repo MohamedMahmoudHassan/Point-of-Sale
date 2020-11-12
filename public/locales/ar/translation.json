@@ -22,6 +22,7 @@
     "cancel": "إلغاء"
   },
   "tableButtons": {
+    "edit": "تعديل",
     "delete": "مسح",
     "deleteConfirm": "هل حقًا تريد المسح؟",
     "ok": "نعم",

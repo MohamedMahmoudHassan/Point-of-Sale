@@ -17,8 +17,16 @@
       "noOfItems": "عدد العناصر"
     }
   },
-  "form": {
+  "formButtons": {
     "save": "حفظ",
     "cancel": "إلغاء"
+  },
+  "tableButtons": {
+    "delete": "مسح",
+    "deleteConfirm": "هل حقًا تريد المسح؟",
+    "ok": "نعم",
+    "cancel": "لا",
+    "deleting": "جاري المسح...",
+    "deleteSuccess": "تم المسح!"
   }
 }

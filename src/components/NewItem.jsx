@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, InputNumber, Select } from "antd";
-import FormControllers from "./FormControllers";
+import FormButtons from "./FormButtons";
 import { useTranslation } from "react-i18next";
 
 const { Option } = Select;
@@ -49,7 +49,7 @@ export default function NewItem() {
         </Form.Item>
 
         <Form.Item>
-          <FormControllers />
+          <FormButtons />
         </Form.Item>
       </Form>
     </div>

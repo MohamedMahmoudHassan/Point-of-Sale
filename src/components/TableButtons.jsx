@@ -3,18 +3,20 @@ import { Button, Col, Row, Popconfirm, message } from "antd";
 import { PlusCircleOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import colors from "../config/colors";
+import { useTranslation } from "react-i18next";
 
 export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handleDelete }) {
   const history = useHistory();
+  const { t } = useTranslation();
 
   const handleAdd = () => {
     history.push(newNav);
   };
 
   const onDelete = async () => {
-    message.loading({ content: "Deleting...", key: "updatable" });
+    message.loading({ content: t("tableButtons.deleting"), key: "updatable" });
     await handleDelete();
-    message.success({ content: "Deleted successfully!", key: "updatable", duration: 2 });
+    message.success({ content: t("tableButtons.deleteSuccess"), key: "updatable", duration: 2 });
   };
 
   return (
@@ -28,13 +30,13 @@ export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handl
       <Col>
         {selectedRowsKeys.length > 0 && (
           <Popconfirm
-            title={"Are you sure you want to delete?"}
+            title={t("tableButtons.deleteConfirm")}
             onConfirm={onDelete}
-            okText="Yes"
-            cancelText="No"
+            okText={t("tableButtons.ok")}
+            cancelText={t("tableButtons.cancel")}
           >
             <Button shape="round" style={{ color: colors.primary, borderColor: colors.primary }}>
-              <DeleteOutlined /> Delete
+              <DeleteOutlined /> {t("tableButtons.delete")}
             </Button>
           </Popconfirm>
         )}

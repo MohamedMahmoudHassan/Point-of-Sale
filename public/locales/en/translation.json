@@ -17,8 +17,16 @@
       "noOfItems": "No. of Items"
     }
   },
-  "form": {
+  "formButtons": {
     "save": "Save",
     "cancel": "Cancel"
+  },
+  "tableButtons": {
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure you want to delete?",
+    "ok": "Yes",
+    "cancel": "No",
+    "deleting": "Deleting...",
+    "deleteSuccess": "Deleted successfully!"
   }
 }

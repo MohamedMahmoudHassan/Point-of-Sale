@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input } from "antd";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
-import FormControllers from "./FormControllers";
+import FormButtons from "./FormButtons";
 import categoriesAPI from "../api/categories";
 
 export default function NewCategory() {
@@ -27,7 +27,7 @@ export default function NewCategory() {
           <Input />
         </Form.Item>
         <Form.Item>
-          <FormControllers />
+          <FormButtons />
         </Form.Item>
       </Form>
     </div>

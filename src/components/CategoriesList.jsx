@@ -50,6 +50,7 @@ export default function CategoriesList() {
       <TableButtons
         addTitle={t("items.categoriesList.addCategory")}
         newNav="categories/new"
+        editNav="categories/edit"
         selectedRowsKeys={selectedRowsKeys}
         handleDelete={deleteCategories}
       />

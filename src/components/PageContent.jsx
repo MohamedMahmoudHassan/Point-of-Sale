@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import NewCategory from "./NewCategory";
 import NewItem from "./NewItem";
 import Home from "./Home";
+import EditCategory from "./EditCategory";
 
 const { Content } = Layout;
 
@@ -21,6 +22,7 @@ export default function PageContent() {
         }}
       >
         <Switch>
+          <Route path="/items/categories/edit/:id" component={EditCategory} />
           <Route path="/items/categories/new" component={NewCategory} />
           <Route path="/items/categories" component={CategoriesList} />
           <Route path="/items/new" component={NewItem} />

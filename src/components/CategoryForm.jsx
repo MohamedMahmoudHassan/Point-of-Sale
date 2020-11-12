@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Input } from "antd";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
 import FormButtons from "./FormButtons";
 
 export default function CategoryForm({ data, onFinish }) {

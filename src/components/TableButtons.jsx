@@ -5,12 +5,22 @@ import { useHistory } from "react-router-dom";
 import colors from "../config/colors";
 import { useTranslation } from "react-i18next";
 
-export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handleDelete }) {
+export default function TableButtons({
+  addTitle,
+  newNav,
+  editNav,
+  selectedRowsKeys,
+  handleDelete
+}) {
   const history = useHistory();
   const { t } = useTranslation();
 
   const handleAdd = () => {
     history.push(newNav);
+  };
+
+  const handleEdit = () => {
+    history.push(`${editNav}/${selectedRowsKeys[0]}`);
   };
 
   const onDelete = async () => {
@@ -34,7 +44,7 @@ export default function TableButtons({ addTitle, newNav, selectedRowsKeys, handl
           <Button
             shape="round"
             style={{ color: colors.primary, borderColor: colors.primary }}
-            onClick={handleAdd}
+            onClick={handleEdit}
           >
             <EditOutlined /> {t("tableButtons.edit")}
           </Button>

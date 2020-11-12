@@ -13,7 +13,7 @@ export default function CategoriesList() {
 
   useEffect(() => {
     populateCategories();
-  });
+  }, []);
 
   const populateCategories = async () => {
     const response = await categoriesAPI.getCategories();

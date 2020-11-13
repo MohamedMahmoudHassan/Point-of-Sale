@@ -9,7 +9,7 @@ export default function DataForm({ title, formItems, onFinish, data }) {
     <Form {...layout} onFinish={onFinish} initialValues={data}>
       <h2>{title}</h2>
       {formItems.map(item => (
-        <Form.Item label={item.label} name={item.name} rules={item.rules}>
+        <Form.Item key={item.name} label={item.label} name={item.name} rules={item.rules}>
           <item.Component />
         </Form.Item>
       ))}

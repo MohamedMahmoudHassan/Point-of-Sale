@@ -3,10 +3,14 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-export default function SelectWithOptions({ data }) {
+export default function SelectWithOptions({ data, ...rest }) {
   return (
-    <Select defaultActiveFirstOption>
-      {data.map(item => <Option value={item.value}>{item.text}</Option>)}
+    <Select defaultActiveFirstOption {...rest}>
+      {data.map(item => (
+        <Option key={item.text} value={item.value}>
+          {item.text}
+        </Option>
+      ))}
     </Select>
   );
 }

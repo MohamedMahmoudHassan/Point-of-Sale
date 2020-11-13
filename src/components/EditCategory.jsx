@@ -26,10 +26,7 @@ export default function EditCategory({ match }) {
   return (
     <div className="form-container">
       {category.label && (
-        <div>
-          <h2>{category.label}</h2>
-          <CategoryForm onFinish={onFinish} data={category} />
-        </div>
+        <CategoryForm title={category.label} onFinish={onFinish} data={category} />
       )}
     </div>
   );

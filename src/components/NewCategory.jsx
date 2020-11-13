@@ -16,8 +16,7 @@ export default function NewCategory({ data }) {
 
   return (
     <div className="form-container">
-      <h2>{t("items.categoriesList.addCategory")}</h2>
-      <CategoryForm onFinish={onFinish} />
+      <CategoryForm title={t("items.categoriesList.addCategory")} onFinish={onFinish} />
     </div>
   );
 }

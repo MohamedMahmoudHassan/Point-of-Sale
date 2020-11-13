@@ -13,8 +13,7 @@ export default function DataTable({ newButtonTitle, columns, getData, deleteData
   }, []);
 
   const populateData = async () => {
-    const response = await getData();
-    const data = addKey(response.data);
+    const data = await getData();
     setData(data);
     setLoading(false);
   };

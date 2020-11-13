@@ -12,7 +12,7 @@ export default function CategoryForm({ ...rest }) {
       formItems={[
         {
           label: t("items.categoriesList.name"),
-          name: "label",
+          name: "name",
           rules: [{ required: true, message: "Input valid category name" }],
           Component: Input
         }

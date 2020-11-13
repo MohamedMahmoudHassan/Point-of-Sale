@@ -2,11 +2,37 @@ import apiClient from "./apiClient";
 import api from "../config/api";
 
 const endpoint = api.apiHost + "/categories";
-const getCategory = id => apiClient.get(`${endpoint}/${id}`);
-const getCategories = () => apiClient.get(endpoint);
-const postCategory = category => apiClient.post(endpoint, category);
-const putCategory = (id, category) => apiClient.put(`${endpoint}/${id}`, category);
-const deleteCategories = categoriesIds => apiClient.delete(endpoint, { data: { categoriesIds } });
+
+const getCategory = async id => {
+  const { data } = await apiClient.get(`${endpoint}/${id}`);
+  return mapToViewModel(data);
+};
+
+const getCategories = async () => {
+  const { data } = await apiClient.get(endpoint);
+  return data.map(category => mapToViewModel(category));
+};
+
+const postCategory = async category => await apiClient.post(endpoint, mapToAPIModel(category));
+
+const putCategory = async (id, category) =>
+  await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(category));
+
+const deleteCategories = async categoriesIds =>
+  await apiClient.delete(endpoint, { data: { categoriesIds } });
+
+const mapToViewModel = category => {
+  return {
+    key: category._id,
+    name: category.label.en
+  };
+};
+
+const mapToAPIModel = category => {
+  return {
+    label: { en: category.name }
+  };
+};
 
 export default {
   getCategory,

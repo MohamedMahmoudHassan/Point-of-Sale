@@ -12,22 +12,18 @@ export default function EditCategory({ match }) {
   }, []);
 
   const populateCategory = async () => {
-    const response = await categoriesAPI.getCategory(match.params.id);
-    const data = { label: response.data.label.en };
+    const data = await categoriesAPI.getCategory(match.params.id);
     setCategory(data);
   };
 
   const onFinish = async values => {
-    values.label = { en: values.label };
     await categoriesAPI.putCategory(match.params.id, values);
     history.push("/items/categories");
   };
 
   return (
     <div className="form-container">
-      {category.label && (
-        <CategoryForm title={category.label} onFinish={onFinish} data={category} />
-      )}
+      {category.name && <CategoryForm title={category.name} onFinish={onFinish} data={category} />}
     </div>
   );
 }

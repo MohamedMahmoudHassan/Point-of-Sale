@@ -15,7 +15,7 @@ const getItems = async () => {
 
 const postItem = async item => await apiClient.post(endpoint, mapToAPIModel(item));
 
-const putItem = async (id, items) => await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(items));
+const putItem = async (id, item) => await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(item));
 
 const deleteItems = async itemsIds => await apiClient.delete(endpoint, { data: { itemsIds } });
 
@@ -23,14 +23,19 @@ const mapToViewModel = item => {
   return {
     key: item._id,
     name: item.label.en,
-    category: item.category.key,
+    category: item.categoryId,
     price: item.price,
     inStock: item.inStock
   };
 };
 
 const mapToAPIModel = item => {
-  return item;
+  return {
+    label: { en: item.name },
+    categoryId: item.category,
+    price: item.price,
+    inStock: item.inStock
+  };
 };
 
 export default {

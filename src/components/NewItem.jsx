@@ -7,7 +7,7 @@ export default function NewItem() {
   const history = useHistory();
 
   const onFinish = async values => {
-    await itemsAPI.postCategory(values);
+    await itemsAPI.postItem(values);
     history.push("/items");
   };
 

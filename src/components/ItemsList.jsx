@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import DataTable from "./common/DataTable";
 import itemsAPI from "../api/items";
+import categoriesAPI from "../api/categories";
 
 export default function ItemsList() {
   const { t } = useTranslation();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    populateCategories();
+  }, []);
+
+  const populateCategories = async () => {
+    const data = await categoriesAPI.getCategories();
+    const categories = data.map(category => {
+      return { text: category.name, value: category.name };
+    });
+    setCategories(categories);
+  };
 
   const columns = [
     {
@@ -15,7 +29,7 @@ export default function ItemsList() {
     {
       title: t("items.itemsList.category"),
       dataIndex: "category",
-      filters: [{ text: "shirts", value: "shirts" }, { text: "pants", value: "pants" }],
+      filters: categories,
       onFilter: (value, record) => record.category === value
     },
     {

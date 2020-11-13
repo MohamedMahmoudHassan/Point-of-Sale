@@ -23,7 +23,7 @@ const mapToViewModel = item => {
   return {
     key: item._id,
     name: item.label.en,
-    category: item.categoryId,
+    category: item.category.name,
     price: item.price,
     inStock: item.inStock
   };
@@ -32,7 +32,7 @@ const mapToViewModel = item => {
 const mapToAPIModel = item => {
   return {
     label: { en: item.name },
-    categoryId: item.category,
+    category: item.category,
     price: item.price,
     inStock: item.inStock
   };

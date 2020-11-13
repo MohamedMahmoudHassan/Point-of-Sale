@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "antd";
-import addKey from "../../utils/addKey";
 import TableButtons from "./TableButtons";
 
 export default function DataTable({ newButtonTitle, columns, getData, deleteData, navTo }) {

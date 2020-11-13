@@ -7,6 +7,7 @@ import NewCategory from "./NewCategory";
 import NewItem from "./NewItem";
 import Home from "./Home";
 import EditCategory from "./EditCategory";
+import EditItem from "./EditItem";
 
 const { Content } = Layout;
 
@@ -25,6 +26,7 @@ export default function PageContent() {
           <Route path="/items/categories/edit/:id" component={EditCategory} />
           <Route path="/items/categories/new" component={NewCategory} />
           <Route path="/items/categories" component={CategoriesList} />
+          <Route path="/items/edit/:id" component={EditItem} />
           <Route path="/items/new" component={NewItem} />
           <Route path="/items" component={ItemsList} />
           <Route path="/" component={Home} />

@@ -22,23 +22,23 @@ export default function ItemsList() {
 
   const columns = [
     {
-      title: t("items.itemsList.name"),
+      title: t("items.itemsList.name.label"),
       dataIndex: "name",
       sorter: { compare: (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) }
     },
     {
-      title: t("items.itemsList.category"),
+      title: t("items.itemsList.category.label"),
       dataIndex: "category",
       filters: categories,
       onFilter: (value, record) => record.category === value
     },
     {
-      title: t("items.itemsList.price"),
+      title: t("items.itemsList.price.label"),
       dataIndex: "price",
       sorter: { compare: (a, b) => a.price - b.price }
     },
     {
-      title: t("items.itemsList.inStock"),
+      title: t("items.itemsList.inStock.label"),
       dataIndex: "inStock",
       sorter: { compare: (a, b) => a.inStock - b.inStock }
     }

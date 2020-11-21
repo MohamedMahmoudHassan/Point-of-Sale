@@ -26,27 +26,35 @@ export default function ItemForm({ ...rest }) {
       {...rest}
       formItems={[
         {
-          label: t("items.itemsList.name"),
+          label: t("items.itemsList.name.label"),
           name: "name",
-          rules: [{ required: true, message: "Input valid category name" }],
+          rules: [{ required: true, message: t("items.itemsList.name.warning") }],
           Component: Input
         },
         {
-          label: t("items.itemsList.category"),
+          label: t("items.itemsList.category.label"),
           name: "category",
-          rules: [{ required: true }],
           Component: props => <SelectWithOptions data={categories} {...props} />
         },
         {
-          label: t("items.itemsList.price"),
+          label: t("items.itemsList.price.label"),
           name: "price",
-          rules: [{ required: true, type: "number", min: 0, message: "Input valid number" }],
+          rules: [
+            { required: true, type: "number", min: 0, message: t("items.itemsList.price.warning") }
+          ],
           Component: props => <InputNumber min={0} {...props} />
         },
         {
-          label: t("items.itemsList.inStock"),
+          label: t("items.itemsList.inStock.label"),
           name: "inStock",
-          rules: [{ required: true, type: "number", min: 0, message: "Input valid number" }],
+          rules: [
+            {
+              required: true,
+              type: "number",
+              min: 0,
+              message: t("items.itemsList.inStock.warning")
+            }
+          ],
           Component: props => <InputNumber min={0} {...props} />
         }
       ]}

@@ -5,16 +5,16 @@
     "itemsList": {
       "addItem": "Add Item",
       "itemsList": "Items List",
-      "name": "Name",
-      "category": "Category",
-      "price": "Price",
-      "inStock": "In Stock"
+      "name": { "label": "Name", "warning": "Input valid item name" },
+      "category": { "label": "Category", "warning": "Input valid category" },
+      "price": { "label": "Price", "warning": "Input valid number" },
+      "inStock": { "label": "In Stock", "warning": "Input valid number" }
     },
     "categoriesList": {
       "addCategory": "Add Category",
       "categoriesList": "Categories List",
-      "name": "Name",
-      "noOfItems": "No. of Items"
+      "name": { "label": "Name", "warning": "Input valid category name" },
+      "noOfItems": { "label": "No. of Items", "warning": "Input valid number" }
     }
   },
   "formButtons": {

@@ -11,9 +11,9 @@ export default function CategoryForm({ ...rest }) {
       {...rest}
       formItems={[
         {
-          label: t("items.categoriesList.name"),
+          label: t("items.categoriesList.name.label"),
           name: "name",
-          rules: [{ required: true, message: "Input valid category name" }],
+          rules: [{ required: true, message: t("items.categoriesList.name.warning") }],
           Component: Input
         }
       ]}

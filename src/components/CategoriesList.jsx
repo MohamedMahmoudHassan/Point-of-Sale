@@ -8,12 +8,12 @@ export default function CategoriesList() {
 
   const columns = [
     {
-      title: t("items.categoriesList.name"),
+      title: t("items.categoriesList.name.label"),
       dataIndex: "name",
       sorter: { compare: (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) }
     },
     {
-      title: t("items.categoriesList.noOfItems"),
+      title: t("items.categoriesList.noOfItems.label"),
       dataIndex: "noOfItems",
       sorter: { compare: (a, b) => a.noOfItems - b.noOfItems }
     }

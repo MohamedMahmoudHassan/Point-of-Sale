@@ -32,7 +32,7 @@ const mapToViewModel = item => {
 const mapToAPIModel = item => {
   return {
     label: { en: item.name },
-    category: item.category,
+    category: item.category === "default" ? undefined : item.category,
     price: item.price,
     inStock: item.inStock
   };

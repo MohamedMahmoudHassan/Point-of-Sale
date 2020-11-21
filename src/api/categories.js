@@ -2,6 +2,7 @@ import apiClient from "./apiClient";
 import api from "../config/api";
 
 const endpoint = api.apiHost + "/categories";
+const defaultCategory = { key: "default", name: "No category" };
 
 const getCategory = async id => {
   const { data } = await apiClient.get(`${endpoint}/${id}`);
@@ -10,7 +11,7 @@ const getCategory = async id => {
 
 const getCategories = async () => {
   const { data } = await apiClient.get(endpoint);
-  return data.map(category => mapToViewModel(category));
+  return [defaultCategory, ...data.map(category => mapToViewModel(category))];
 };
 
 const postCategory = async category => await apiClient.post(endpoint, mapToAPIModel(category));

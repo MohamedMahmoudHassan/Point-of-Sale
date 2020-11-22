@@ -50,7 +50,7 @@ export default function ItemsList() {
       columns={columns}
       getData={itemsAPI.getItems}
       deleteData={itemsAPI.deleteItems}
-      navTo="items"
+      navTo="/items"
     />
   );
 }

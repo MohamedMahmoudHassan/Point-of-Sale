@@ -1,19 +1,16 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import ItemForm from "./ItemForm";
 import itemsAPI from "../api/items";
+import { useTranslation } from "react-i18next";
 
 export default function NewItem() {
-  const history = useHistory();
+  const { t } = useTranslation();
 
-  const onFinish = async values => {
-    await itemsAPI.postItem(values);
-    history.push("/items");
-  };
+  const onFinish = async values => await itemsAPI.postItem(values);
 
   return (
     <div className="form-container">
-      <ItemForm title="New Item" onFinish={onFinish} />
+      <ItemForm title={t("items.itemsList.addItem")} onFinish={onFinish} />
     </div>
   );
 }

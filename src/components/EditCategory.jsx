@@ -16,10 +16,7 @@ export default function EditCategory({ match }) {
     setCategory(data);
   };
 
-  const onFinish = async values => {
-    await categoriesAPI.putCategory(match.params.id, values);
-    history.push("/items/categories");
-  };
+  const onFinish = async values => await categoriesAPI.putCategory(match.params.id, values);
 
   return (
     <div className="form-container">

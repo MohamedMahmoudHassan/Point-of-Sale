@@ -25,7 +25,7 @@ export default function CategoriesList() {
       columns={columns}
       getData={categoriesAPI.getCategories}
       deleteData={categoriesAPI.deleteCategories}
-      navTo="categories"
+      navTo="/items/categories"
     />
   );
 }

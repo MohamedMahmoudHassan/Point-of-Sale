@@ -24,6 +24,7 @@ export default function ItemForm({ ...rest }) {
   return (
     <DataForm
       {...rest}
+      navTo="/items"
       formItems={[
         {
           label: t("items.itemsList.name.label"),

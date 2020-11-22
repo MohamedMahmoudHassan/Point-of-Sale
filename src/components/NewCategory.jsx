@@ -1,17 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
 import CategoryForm from "./CategoryForm";
 import categoriesAPI from "../api/categories";
 
-export default function NewCategory({ data }) {
+export default function NewCategory() {
   const { t } = useTranslation();
-  const history = useHistory();
 
-  const onFinish = async values => {
-    await categoriesAPI.postCategory(values);
-    history.push("/items/categories");
-  };
+  const onFinish = async values => await categoriesAPI.postCategory(values);
 
   return (
     <div className="form-container">

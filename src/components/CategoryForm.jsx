@@ -9,6 +9,7 @@ export default function CategoryForm({ ...rest }) {
   return (
     <DataForm
       {...rest}
+      navTo="/items/categories"
       formItems={[
         {
           label: t("items.categoriesList.name.label"),

@@ -19,7 +19,9 @@
   },
   "formButtons": {
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "saveSuccess": "Saved successfully!"
   },
   "tableButtons": {
     "edit": "Edit",

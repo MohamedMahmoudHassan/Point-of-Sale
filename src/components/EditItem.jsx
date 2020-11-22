@@ -16,10 +16,7 @@ export default function EditItem({ match }) {
     setItem(data);
   };
 
-  const onFinish = async values => {
-    await itemsAPI.putItem(match.params.id, values);
-    history.push("/items");
-  };
+  const onFinish = async values => await itemsAPI.putItem(match.params.id, values);
 
   return (
     <div className="form-container">

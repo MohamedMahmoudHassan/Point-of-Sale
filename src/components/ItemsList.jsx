@@ -13,18 +13,15 @@ export default function ItemsList() {
   }, []);
 
   const populateCategories = async () => {
-    const data = await categoriesAPI.getCategories();
-    const categories = data.map(category => {
-      return { text: category.name, value: category.name };
-    });
-    setCategories(categories);
+    const data = await categoriesAPI.getCategories(true);
+    setCategories(data);
   };
 
   const columns = [
     {
       title: t("items.itemsList.name.label"),
-      dataIndex: "name",
-      sorter: { compare: (a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1) }
+      dataIndex: "text",
+      sorter: { compare: (a, b) => (a.text.toLowerCase() < b.text.toLowerCase() ? -1 : 1) }
     },
     {
       title: t("items.itemsList.category.label"),

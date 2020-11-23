@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CategoryForm from "./CategoryForm";
 import categoriesAPI from "../api/categories";
-import { useHistory } from "react-router-dom";
 
 export default function EditCategory({ match }) {
-  const history = useHistory();
   const [category, setCategory] = useState({});
 
   useEffect(() => {
@@ -20,7 +18,7 @@ export default function EditCategory({ match }) {
 
   return (
     <div className="form-container">
-      {category.name && <CategoryForm title={category.name} onFinish={onFinish} data={category} />}
+      {category.text && <CategoryForm title={category.text} onFinish={onFinish} data={category} />}
     </div>
   );
 }

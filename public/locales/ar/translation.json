@@ -19,7 +19,9 @@
   },
   "formButtons": {
     "save": "حفظ",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "saving": "جاري الحفظ...",
+    "saveSuccess": "تم الحفظ!"
   },
   "tableButtons": {
     "edit": "تعديل",

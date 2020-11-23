@@ -20,7 +20,7 @@ export default function EditItem({ match }) {
 
   return (
     <div className="form-container">
-      {item.name && <ItemForm title={item.name} onFinish={onFinish} data={item} />}
+      {item.text && <ItemForm title={item.text} onFinish={onFinish} data={item} />}
     </div>
   );
 }

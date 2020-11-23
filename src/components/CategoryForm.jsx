@@ -13,7 +13,7 @@ export default function CategoryForm({ ...rest }) {
       formItems={[
         {
           label: t("items.categoriesList.name.label"),
-          name: "name",
+          name: "text",
           rules: [{ required: true, message: t("items.categoriesList.name.warning") }],
           Component: Input
         }

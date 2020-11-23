@@ -15,10 +15,7 @@ export default function ItemForm({ ...rest }) {
 
   const populateCategories = async () => {
     const data = await categoriesAPI.getCategories();
-    const categories = data.map(category => {
-      return { text: category.name, value: category.key };
-    });
-    setCategories(categories);
+    setCategories(data);
   };
 
   return (
@@ -28,7 +25,7 @@ export default function ItemForm({ ...rest }) {
       formItems={[
         {
           label: t("items.itemsList.name.label"),
-          name: "name",
+          name: "text",
           rules: [{ required: true, message: t("items.itemsList.name.warning") }],
           Component: Input
         },

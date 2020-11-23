@@ -7,7 +7,7 @@ export default function SelectWithOptions({ data, ...rest }) {
   return (
     <Select {...rest}>
       {data.map(item => (
-        <Option key={item.text} value={item.value}>
+        <Option key={item.key} value={item.key}>
           {item.text}
         </Option>
       ))}

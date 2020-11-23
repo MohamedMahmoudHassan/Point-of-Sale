@@ -1,5 +1,6 @@
 import apiClient from "./apiClient";
 import api from "../config/api";
+import categoriesAPI from "../api/categories";
 
 const endpoint = api.apiHost + "/items";
 
@@ -15,15 +16,18 @@ const getItems = async () => {
 
 const postItem = async item => await apiClient.post(endpoint, mapToAPIModel(item));
 
-const putItem = async (id, item) => await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(item));
-
+const putItem = async (id, item) => {
+  console.log(item);
+  const response = await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(item));
+  return response;
+};
 const deleteItems = async itemsIds => await apiClient.delete(endpoint, { data: { itemsIds } });
 
 const mapToViewModel = item => {
   return {
     key: item._id,
-    name: item.label.en,
-    category: item.category ? item.category.name : "No category",
+    text: item.label.en,
+    category: item.category ? item.category.name : categoriesAPI.defaultCategory.text,
     price: item.price,
     inStock: item.inStock
   };
@@ -31,7 +35,7 @@ const mapToViewModel = item => {
 
 const mapToAPIModel = item => {
   return {
-    label: { en: item.name },
+    label: { en: item.text },
     category: item.category === "default" ? undefined : item.category,
     price: item.price,
     inStock: item.inStock

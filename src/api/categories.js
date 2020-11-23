@@ -2,7 +2,7 @@ import apiClient from "./apiClient";
 import api from "../config/api";
 
 const endpoint = api.apiHost + "/categories";
-const defaultCategory = { key: "default", text: "No category" };
+const defaultCategory = { key: "default", value: "No category", text: "No category" };
 
 const getCategory = async id => {
   const { data } = await apiClient.get(`${endpoint}/${id}`);
@@ -27,6 +27,7 @@ const deleteCategories = async categoriesIds =>
 const mapToViewModel = category => {
   return {
     key: category._id,
+    value: category.label.en,
     text: category.label.en
   };
 };

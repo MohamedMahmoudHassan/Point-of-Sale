@@ -27,7 +27,9 @@ const mapToViewModel = item => {
   return {
     key: item._id,
     text: item.label.en,
-    category: item.category ? item.category.name : categoriesAPI.defaultCategory.text,
+    category: item.category
+      ? categoriesAPI.mapToViewModel(item.category)
+      : categoriesAPI.defaultCategory,
     price: item.price,
     inStock: item.inStock
   };

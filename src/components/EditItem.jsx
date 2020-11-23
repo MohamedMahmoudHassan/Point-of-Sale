@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import ItemForm from "./ItemForm";
 import itemsAPI from "../api/items";
 
 export default function EditItem({ match }) {
-  const history = useHistory();
   const [item, setItem] = useState({});
 
   useEffect(() => {
@@ -13,6 +11,7 @@ export default function EditItem({ match }) {
 
   const populateCategory = async () => {
     const data = await itemsAPI.getItem(match.params.id);
+    data.category = data.category.value;
     setItem(data);
   };
 

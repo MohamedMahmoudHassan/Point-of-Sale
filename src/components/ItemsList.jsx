@@ -26,8 +26,9 @@ export default function ItemsList() {
     {
       title: t("items.itemsList.category.label"),
       dataIndex: "category",
+      render: category => category.text,
       filters: categories,
-      onFilter: (value, record) => record.category === value
+      onFilter: (value, record) => record.category.key === value
     },
     {
       title: t("items.itemsList.price.label"),

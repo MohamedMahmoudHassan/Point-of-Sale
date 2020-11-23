@@ -17,7 +17,6 @@ const getItems = async () => {
 const postItem = async item => await apiClient.post(endpoint, mapToAPIModel(item));
 
 const putItem = async (id, item) => {
-  console.log(item);
   const response = await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(item));
   return response;
 };

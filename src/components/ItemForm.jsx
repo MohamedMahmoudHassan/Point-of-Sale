@@ -35,7 +35,9 @@ export default function ItemForm({ ...rest }) {
         {
           label: t("items.itemsList.category.label"),
           name: "category",
-          Component: props => <SelectWithOptions data={categories} {...props} />
+          Component: props => (
+            <SelectWithOptions defaultValue="No Category" data={categories} {...props} />
+          )
         },
         {
           label: t("items.itemsList.price.label"),

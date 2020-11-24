@@ -14,7 +14,7 @@ export default function ItemForm({ ...rest }) {
   }, []);
 
   const populateCategories = async () => {
-    const data = await categoriesAPI.getCategories(true);
+    const data = await categoriesAPI.getCategories(localStorage.getItem("store"), true);
     setCategories(data);
   };
 

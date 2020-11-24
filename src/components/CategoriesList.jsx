@@ -23,7 +23,7 @@ export default function CategoriesList() {
     <DataTable
       newButtonTitle={t("items.categoriesList.addCategory")}
       columns={columns}
-      getData={categoriesAPI.getCategories}
+      getData={() => categoriesAPI.getCategories(localStorage.getItem("store"))}
       deleteData={categoriesAPI.deleteCategories}
       navTo="/items/categories"
     />

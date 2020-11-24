@@ -9,8 +9,8 @@ const getCategory = async id => {
   return mapToViewModel(data);
 };
 
-const getCategories = async includeDefault => {
-  const { data } = await apiClient.get(endpoint);
+const getCategories = async (storeId, includeDefault) => {
+  const { data } = await apiClient.get(`${endpoint}?store=${storeId}`);
   const categories = data.map(category => mapToViewModel(category));
   if (includeDefault) return [defaultCategory, ...categories];
   return categories;

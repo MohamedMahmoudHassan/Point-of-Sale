@@ -25,7 +25,7 @@ const deleteItems = async itemsIds => await apiClient.delete(endpoint, { data: {
 const mapToViewModel = item => {
   return {
     key: item._id,
-    text: item.label.en,
+    text: item.name,
     category: item.category
       ? categoriesAPI.mapToViewModel(item.category)
       : categoriesAPI.defaultCategory,
@@ -36,7 +36,7 @@ const mapToViewModel = item => {
 
 const mapToAPIModel = item => {
   return {
-    label: { en: item.text },
+    name: item.text,
     category: item.category === "default" ? undefined : item.category,
     price: item.price,
     inStock: item.inStock

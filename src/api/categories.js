@@ -28,13 +28,13 @@ const mapToViewModel = category => {
   return {
     key: category._id,
     value: category._id,
-    text: category.label.en
+    text: category.name
   };
 };
 
 const mapToAPIModel = category => {
   return {
-    label: { en: category.text }
+    name: category.text
   };
 };
 

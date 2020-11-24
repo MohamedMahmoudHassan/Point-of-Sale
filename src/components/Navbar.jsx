@@ -3,6 +3,7 @@ import { Row, Col, Layout } from "antd";
 import LangController from "./LangController";
 import NavTitle from "./NavTitle";
 import SideMenuToggleButton from "./SideMenuToggleButton";
+import StoreSelector from "./StoreSelector";
 
 const { Header } = Layout;
 
@@ -15,6 +16,9 @@ export default function Navbar() {
         </Col>
         <Col flex="auto">
           <NavTitle />
+        </Col>
+        <Col flex="170px">
+          <StoreSelector />
         </Col>
         <Col flex="100px">
           <LangController />

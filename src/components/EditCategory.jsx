@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CategoryForm from "./CategoryForm";
 import categoriesAPI from "../api/categories";
+import DataContext from "./context/dataContext";
 
 export default function EditCategory({ match }) {
   const [category, setCategory] = useState({});
+  const { store } = useContext(DataContext);
 
   useEffect(() => {
     populateCategory();
@@ -14,7 +16,8 @@ export default function EditCategory({ match }) {
     setCategory(data);
   };
 
-  const onFinish = async values => await categoriesAPI.putCategory(match.params.id, values);
+  const onFinish = async values =>
+    await categoriesAPI.putCategory(match.params.id, { ...values, store });
 
   return (
     <div className="form-container">

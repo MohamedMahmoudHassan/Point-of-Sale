@@ -7,22 +7,8 @@ import DataContext from "./context/dataContext";
 
 export default function ItemsList() {
   const { t } = useTranslation();
-  const [categories, setCategories] = useState([]);
   const { store } = useContext(DataContext);
-
-  useEffect(
-    () => {
-      populateCategories();
-    },
-    [store]
-  );
-
-  const populateCategories = async () => {
-    const data = await categoriesAPI.getCategories(store, true);
-    setCategories(data);
-  };
-
-  const columns = [
+  const [columns, setColumns] = useState([
     {
       title: t("items.itemsList.name.label"),
       dataIndex: "text",
@@ -32,7 +18,6 @@ export default function ItemsList() {
       title: t("items.itemsList.category.label"),
       dataIndex: "category",
       render: category => category.text,
-      filters: categories,
       onFilter: (value, record) => record.category.key === value
     },
     {
@@ -45,19 +30,33 @@ export default function ItemsList() {
       dataIndex: "inStock",
       sorter: { compare: (a, b) => a.inStock - b.inStock }
     }
-  ];
+  ]);
+
+  useEffect(
+    () => {
+      populateCategories();
+    },
+    [store]
+  );
+
+  const populateCategories = async () => {
+    const categories = await categoriesAPI.getCategories(store, true);
+    const newColumns = [];
+    columns.map(column => newColumns.push({ ...column }));
+
+    newColumns[1]["filters"] = categories;
+    setColumns(newColumns);
+  };
+
+  const getData = () => itemsAPI.getItems(store);
 
   return (
-    <div>
-      {store && (
-        <DataTable
-          newButtonTitle={t("items.itemsList.addItem")}
-          columns={columns}
-          getData={() => itemsAPI.getItems(store)}
-          deleteData={itemsAPI.deleteItems}
-          navTo="/items"
-        />
-      )}
-    </div>
+    <DataTable
+      newButtonTitle={t("items.itemsList.addItem")}
+      columns={columns}
+      getData={getData}
+      deleteData={itemsAPI.deleteItems}
+      navTo="/items"
+    />
   );
 }

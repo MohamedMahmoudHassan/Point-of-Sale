@@ -21,17 +21,15 @@ export default function CategoriesList() {
     }
   ];
 
+  const getData = async () => await categoriesAPI.getCategories(store);
+
   return (
-    <div>
-      {store && (
-        <DataTable
-          newButtonTitle={t("items.categoriesList.addCategory")}
-          columns={columns}
-          getData={() => categoriesAPI.getCategories(store)}
-          deleteData={categoriesAPI.deleteCategories}
-          navTo="/items/categories"
-        />
-      )}
-    </div>
+    <DataTable
+      newButtonTitle={t("items.categoriesList.addCategory")}
+      columns={columns}
+      getData={getData}
+      deleteData={categoriesAPI.deleteCategories}
+      navTo="/items/categories"
+    />
   );
 }

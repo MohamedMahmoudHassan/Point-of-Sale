@@ -29,7 +29,7 @@ export default function AppLayout() {
               <Navbar />
               <Layout>
                 <SideMenu />
-                <PageContent />
+                {store && <PageContent />}
               </Layout>
             </Layout>
           </ConfigProvider>

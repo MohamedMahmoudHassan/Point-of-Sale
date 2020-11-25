@@ -9,8 +9,9 @@ const getItem = async id => {
   return mapToViewModel(data);
 };
 
-const getItems = async () => {
-  const { data } = await apiClient.get(endpoint);
+const getItems = async storeId => {
+  console.log(`${endpoint}?store=${storeId}`);
+  const { data } = await apiClient.get(`${endpoint}?store=${storeId}`);
   return data.map(item => mapToViewModel(item));
 };
 
@@ -38,6 +39,7 @@ const mapToAPIModel = item => {
   return {
     name: item.text,
     category: item.category === "default" ? undefined : item.category,
+    store: item.store,
     price: item.price,
     inStock: item.inStock
   };

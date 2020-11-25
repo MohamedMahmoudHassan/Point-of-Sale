@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import DataTable from "./common/DataTable";
 import itemsAPI from "../api/items";
 import categoriesAPI from "../api/categories";
+import DataContext from "./context/dataContext";
 
 export default function ItemsList() {
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
+  const { store } = useContext(DataContext);
 
-  useEffect(() => {
-    populateCategories();
-  }, []);
+  useEffect(
+    () => {
+      populateCategories();
+    },
+    [store]
+  );
 
   const populateCategories = async () => {
-    const data = await categoriesAPI.getCategories(localStorage.getItem("store"), true);
+    const data = await categoriesAPI.getCategories(store, true);
     setCategories(data);
   };
 
@@ -43,12 +48,16 @@ export default function ItemsList() {
   ];
 
   return (
-    <DataTable
-      newButtonTitle={t("items.itemsList.addItem")}
-      columns={columns}
-      getData={itemsAPI.getItems}
-      deleteData={itemsAPI.deleteItems}
-      navTo="/items"
-    />
+    <div>
+      {store && (
+        <DataTable
+          newButtonTitle={t("items.itemsList.addItem")}
+          columns={columns}
+          getData={() => itemsAPI.getItems(store)}
+          deleteData={itemsAPI.deleteItems}
+          navTo="/items"
+        />
+      )}
+    </div>
   );
 }

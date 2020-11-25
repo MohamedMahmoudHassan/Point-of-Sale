@@ -4,13 +4,12 @@ import categoriesAPI from "../api/categories";
 
 const endpoint = api.apiHost + "/items";
 
-const getItem = async id => {
+const getItem = async (id, getValOnly) => {
   const { data } = await apiClient.get(`${endpoint}/${id}`);
-  return mapToViewModel(data);
+  return mapToViewModel(data, getValOnly);
 };
 
 const getItems = async storeId => {
-  console.log(`${endpoint}?store=${storeId}`);
   const { data } = await apiClient.get(`${endpoint}?store=${storeId}`);
   return data.map(item => mapToViewModel(item));
 };
@@ -23,13 +22,14 @@ const putItem = async (id, item) => {
 };
 const deleteItems = async itemsIds => await apiClient.delete(endpoint, { data: { itemsIds } });
 
-const mapToViewModel = item => {
+const mapToViewModel = (item, getValOnly) => {
+  const category = item.category
+    ? categoriesAPI.mapToViewModel(item.category)
+    : categoriesAPI.defaultCategory;
   return {
     key: item._id,
     text: item.name,
-    category: item.category
-      ? categoriesAPI.mapToViewModel(item.category)
-      : categoriesAPI.defaultCategory,
+    category: getValOnly ? category.value : category,
     price: item.price,
     inStock: item.inStock
   };
@@ -38,7 +38,7 @@ const mapToViewModel = item => {
 const mapToAPIModel = item => {
   return {
     name: item.text,
-    category: item.category === "default" ? undefined : item.category,
+    category: item.category === categoriesAPI.defaultCategory.value ? undefined : item.category,
     store: item.store,
     price: item.price,
     inStock: item.inStock

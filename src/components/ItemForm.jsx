@@ -9,6 +9,7 @@ import DataContext from "./context/dataContext";
 export default function ItemForm({ ...rest }) {
   const { t } = useTranslation();
   const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { store } = useContext(DataContext);
 
   useEffect(
@@ -21,6 +22,7 @@ export default function ItemForm({ ...rest }) {
   const populateCategories = async () => {
     const data = await categoriesAPI.getCategories(store, true);
     setCategories(data);
+    setLoading(false);
   };
 
   return (
@@ -37,10 +39,14 @@ export default function ItemForm({ ...rest }) {
         {
           label: t("items.itemsList.category.label"),
           name: "category",
-          Component: props =>
-            categories && (
-              <SelectWithOptions defaultValue="No Category" data={categories} {...props} />
-            )
+          Component: props => (
+            <SelectWithOptions
+              loading={loading}
+              defaultValue={!loading && "default"}
+              data={categories}
+              {...props}
+            />
+          )
         },
         {
           label: t("items.itemsList.price.label"),

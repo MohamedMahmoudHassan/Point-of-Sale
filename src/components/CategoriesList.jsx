@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import categoriesAPI from "../api/categories";
 import DataTable from "./common/DataTable";
 import { useTranslation } from "react-i18next";
+import DataContext from "./context/dataContext";
 
 export default function CategoriesList() {
   const { t } = useTranslation();
+  const { store } = useContext(DataContext);
 
   const columns = [
     {
@@ -20,12 +22,16 @@ export default function CategoriesList() {
   ];
 
   return (
-    <DataTable
-      newButtonTitle={t("items.categoriesList.addCategory")}
-      columns={columns}
-      getData={() => categoriesAPI.getCategories(localStorage.getItem("store"))}
-      deleteData={categoriesAPI.deleteCategories}
-      navTo="/items/categories"
-    />
+    <div>
+      {store && (
+        <DataTable
+          newButtonTitle={t("items.categoriesList.addCategory")}
+          columns={columns}
+          getData={() => categoriesAPI.getCategories(store)}
+          deleteData={categoriesAPI.deleteCategories}
+          navTo="/items/categories"
+        />
+      )}
+    </div>
   );
 }

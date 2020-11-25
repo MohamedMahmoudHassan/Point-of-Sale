@@ -7,10 +7,12 @@ import PageContent from "./PageContent";
 import languages from "../config/languages";
 import StyleDirectionContext from "./context/styleDirectionContext";
 import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
+import DataContext from "./context/dataContext";
 
 export default function AppLayout() {
   const [direction, setDirection] = useState();
   const [isCollapsed, toggleCollapse] = useState(false);
+  const [store, setStore] = useState();
 
   i18n.on("initialized", () =>
     setDirection(languages.find(lang => lang.abb === i18n.language).direction)
@@ -21,15 +23,17 @@ export default function AppLayout() {
       value={{ StyleDirection: direction, onDirectionChange: setDirection }}
     >
       <SideMenuCollapseContext.Provider value={{ isCollapsed, onToggleCollapse: toggleCollapse }}>
-        <ConfigProvider direction={direction}>
-          <Layout>
-            <Navbar />
+        <DataContext.Provider value={{ store, setStore }}>
+          <ConfigProvider direction={direction}>
             <Layout>
-              <SideMenu />
-              <PageContent />
+              <Navbar />
+              <Layout>
+                <SideMenu />
+                <PageContent />
+              </Layout>
             </Layout>
-          </Layout>
-        </ConfigProvider>
+          </ConfigProvider>
+        </DataContext.Provider>
       </SideMenuCollapseContext.Provider>
     </StyleDirectionContext.Provider>
   );

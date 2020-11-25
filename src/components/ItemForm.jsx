@@ -24,54 +24,51 @@ export default function ItemForm({ ...rest }) {
   };
 
   return (
-    <div>
-      {store && (
-        <DataForm
-          {...rest}
-          navTo="/items"
-          formItems={[
+    <DataForm
+      {...rest}
+      navTo="/items"
+      formItems={[
+        {
+          label: t("items.itemsList.name.label"),
+          name: "text",
+          rules: [{ required: true, message: t("items.itemsList.name.warning") }],
+          Component: Input
+        },
+        {
+          label: t("items.itemsList.category.label"),
+          name: "category",
+          Component: props =>
+            categories && (
+              <SelectWithOptions defaultValue="No Category" data={categories} {...props} />
+            )
+        },
+        {
+          label: t("items.itemsList.price.label"),
+          name: "price",
+          rules: [
             {
-              label: t("items.itemsList.name.label"),
-              name: "text",
-              rules: [{ required: true, message: t("items.itemsList.name.warning") }],
-              Component: Input
-            },
-            {
-              label: t("items.itemsList.category.label"),
-              name: "category",
-              Component: props => (
-                <SelectWithOptions defaultValue="No Category" data={categories} {...props} />
-              )
-            },
-            {
-              label: t("items.itemsList.price.label"),
-              name: "price",
-              rules: [
-                {
-                  required: true,
-                  type: "number",
-                  min: 0,
-                  message: t("items.itemsList.price.warning")
-                }
-              ],
-              Component: props => <InputNumber min={0} {...props} />
-            },
-            {
-              label: t("items.itemsList.inStock.label"),
-              name: "inStock",
-              rules: [
-                {
-                  required: true,
-                  type: "number",
-                  min: 0,
-                  message: t("items.itemsList.inStock.warning")
-                }
-              ],
-              Component: props => <InputNumber min={0} {...props} />
+              required: true,
+              type: "number",
+              min: 0,
+              message: t("items.itemsList.price.warning")
             }
-          ]}
-        />
-      )}
-    </div>
+          ],
+          Component: props => <InputNumber min={0} {...props} />
+        },
+        {
+          label: t("items.itemsList.inStock.label"),
+          name: "inStock",
+          rules: [
+            {
+              required: true,
+              type: "number",
+              min: 0,
+              message: t("items.itemsList.inStock.warning")
+            }
+          ],
+          Component: props => <InputNumber min={0} {...props} />
+        }
+      ]}
+    />
   );
 }

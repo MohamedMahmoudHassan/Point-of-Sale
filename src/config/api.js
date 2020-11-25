@@ -1,3 +1,3 @@
 export default {
-  apiHost: "https://point-of-sale-1024-backend.herokuapp.com/api"
+  apiHost: "http://192.168.1.4:5000/api"
 };

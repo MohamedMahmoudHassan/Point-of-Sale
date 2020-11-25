@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "antd";
+import TestComp from "./common/TestComp";
 
 export default function Home() {
   const [showTestComp, setShowTestComp] = useState(false);
@@ -13,6 +14,7 @@ export default function Home() {
       <Button type="dashed" onClick={test}>
         Test
       </Button>
+      {showTestComp && <TestComp />}
     </div>
   );
 }

@@ -8,11 +8,17 @@ export default function NewCategory() {
   const { t } = useTranslation();
   const { store } = useContext(DataContext);
 
+  const getData = () => {
+    return {};
+  };
+
   const onFinish = async values => await categoriesAPI.postCategory({ ...values, store });
 
   return (
-    <div className="form-container">
-      <CategoryForm title={t("items.categoriesList.addCategory")} onFinish={onFinish} />
-    </div>
+    <CategoryForm
+      title={t("items.categoriesList.addCategory")}
+      onFinish={onFinish}
+      getData={getData}
+    />
   );
 }

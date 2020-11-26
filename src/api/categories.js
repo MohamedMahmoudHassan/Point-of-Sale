@@ -29,7 +29,8 @@ const mapToViewModel = category => {
   return {
     key: category._id,
     value: category._id,
-    text: category.name
+    text: category.name,
+    image: category.imageUrl
   };
 };
 

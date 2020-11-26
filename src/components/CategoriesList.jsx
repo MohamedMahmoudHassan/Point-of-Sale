@@ -18,6 +18,23 @@ export default function CategoriesList() {
       title: t("items.categoriesList.noOfItems.label"),
       dataIndex: "noOfItems",
       sorter: { compare: (a, b) => a.noOfItems - b.noOfItems }
+    },
+    {
+      title: "",
+      dataIndex: "image",
+      width: 110,
+      render(image, record) {
+        return {
+          props: {
+            style: {
+              backgroundImage: `url(${image})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat"
+            }
+          }
+        };
+      }
     }
   ];
 

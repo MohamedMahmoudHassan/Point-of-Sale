@@ -37,7 +37,8 @@ const mapToViewModel = category => {
 const mapToAPIModel = category => {
   return {
     name: category.text,
-    store: category.store
+    store: category.store,
+    imageUrl: category.image
   };
 };
 

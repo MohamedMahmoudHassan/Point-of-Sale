@@ -37,7 +37,11 @@ export default function DataForm({ title, formItems, onFinish, navTo, getData })
       <Form {...layout} onFinish={handelFinish} form={form}>
         <h2>{data.text || title}</h2>
         {formItems.map(item => (
-          <Form.Item key={item.name} {..._.pick(item, ["name", "label", "rules"])}>
+          <Form.Item
+            key={item.name}
+            {..._.pick(item, ["name", "label", "rules"])}
+            {...item.otherProps}
+          >
             <item.Component />
           </Form.Item>
         ))}

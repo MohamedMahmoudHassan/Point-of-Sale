@@ -38,7 +38,7 @@ const mapToAPIModel = category => {
   return {
     name: category.text,
     store: category.store,
-    imageUrl: category.image
+    imageUrl: category.image ? category.image[0].response.imageUrl : undefined
   };
 };
 

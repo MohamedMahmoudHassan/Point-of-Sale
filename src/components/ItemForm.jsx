@@ -20,7 +20,7 @@ export default function ItemForm({ ...rest }) {
   );
 
   const populateCategories = async () => {
-    const data = await categoriesAPI.getCategories(store, true);
+    const data = await categoriesAPI.getCategories(store, { includeDefault: true });
     setCategories(data);
     setLoading(false);
   };

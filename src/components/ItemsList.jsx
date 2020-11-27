@@ -40,7 +40,7 @@ export default function ItemsList() {
   );
 
   const populateCategories = async () => {
-    const categories = await categoriesAPI.getCategories(store, true);
+    const categories = await categoriesAPI.getCategories(store, { includeDefault: true });
     const newColumns = [];
     columns.map(column => newColumns.push({ ...column }));
 

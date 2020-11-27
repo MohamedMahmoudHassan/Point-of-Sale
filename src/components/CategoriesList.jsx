@@ -38,7 +38,7 @@ export default function CategoriesList() {
     }
   ];
 
-  const getData = async () => await categoriesAPI.getCategories(store);
+  const getData = async () => await categoriesAPI.getCategories(store, {});
 
   return (
     <DataTable

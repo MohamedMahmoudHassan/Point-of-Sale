@@ -4,12 +4,12 @@ import api from "../config/api";
 const endpoint = api.apiHost + "/categories";
 const defaultCategory = { key: "default", value: "default", text: "No category" };
 
-const getCategory = async id => {
+const getCategory = async (id, isForm) => {
   const { data } = await apiClient.get(`${endpoint}/${id}`);
-  return mapToViewModel(data);
+  return mapToViewModel(data, isForm);
 };
 
-const getCategories = async (storeId, includeDefault) => {
+const getCategories = async (storeId, { includeDefault }) => {
   const { data } = await apiClient.get(`${endpoint}?store=${storeId}`);
   const categories = data.map(category => mapToViewModel(category));
 
@@ -25,20 +25,32 @@ const putCategory = async (id, category) =>
 const deleteCategories = async categoriesIds =>
   await apiClient.delete(endpoint, { data: { categoriesIds } });
 
-const mapToViewModel = category => {
+const mapToViewModel = (category, isForm) => {
   return {
     key: category._id,
     value: category._id,
     text: category.name,
-    image: category.imageUrl
+    image: category.imageUrl && isForm ? mapImageToFormModel(category.imageUrl) : category.imageUrl
   };
 };
 
+const mapImageToFormModel = image => {
+  return [
+    {
+      uid: "-1",
+      name: "image.png",
+      status: "done",
+      url: image
+    }
+  ];
+};
+
 const mapToAPIModel = category => {
+  const image = category.image.length ? category.image[0] : undefined;
   return {
     name: category.text,
     store: category.store,
-    imageUrl: category.image ? category.image[0].response.imageUrl : undefined
+    imageUrl: image ? image.url || image.response.imageUrl : undefined
   };
 };
 

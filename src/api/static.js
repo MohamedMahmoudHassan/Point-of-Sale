@@ -5,7 +5,6 @@ const endpoint = api.apiHostStatic;
 
 const postImage = async file => {
   const formData = new FormData();
-
   formData.append("image", file);
 
   return await apiClient.post(endpoint, formData, {
@@ -13,6 +12,10 @@ const postImage = async file => {
   });
 };
 
+const deleteImage = async ({ name, url }) =>
+  await apiClient.delete(url ? url : `${endpoint}/${name}`);
+
 export default {
-  postImage
+  postImage,
+  deleteImage
 };

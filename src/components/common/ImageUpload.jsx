@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Upload, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import api from "../../config/api";
 
-export default function ImageUpload({ fileList, setFileList }) {
+export default function ImageUpload(props) {
   const getBase64 = file => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -19,24 +20,11 @@ export default function ImageUpload({ fileList, setFileList }) {
   const onCancel = () => setPreviewVisible(false);
 
   const onPreview = async file => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
+    if (!file.url && !file.preview) file.preview = await getBase64(file.originFileObj);
+
     setPreviewImage(file.url || file.preview);
     setPreviewVisible(true);
     setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf("/") + 1));
-  };
-
-  const onRemove = file => {
-    const index = fileList.indexOf(file);
-    const newFileList = fileList.slice();
-    newFileList.splice(index, 1);
-    setFileList(newFileList);
-  };
-
-  const beforeUpload = file => {
-    setFileList([...fileList, file]);
-    return false;
   };
 
   const uploadButton = (
@@ -50,13 +38,12 @@ export default function ImageUpload({ fileList, setFileList }) {
     <>
       <Upload
         name="image"
+        action={api.apiHostStatic}
         listType="picture-card"
-        fileList={fileList}
-        beforeUpload={beforeUpload}
         onPreview={onPreview}
-        onRemove={onRemove}
+        {...props}
       >
-        {fileList.length >= 1 ? null : uploadButton}
+        {props.fileList && props.fileList.length >= 1 ? null : uploadButton}
       </Upload>
       <Modal visible={previewVisible} title={previewTitle} footer={null} onCancel={onCancel}>
         <img alt="example" style={{ width: "100%" }} src={previewImage} />

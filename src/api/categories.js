@@ -30,7 +30,8 @@ const mapToViewModel = (category, isForm) => {
     key: category._id,
     value: category._id,
     text: category.name,
-    image: category.imageUrl && isForm ? mapImageToFormModel(category.imageUrl) : category.imageUrl
+    image: category.imageUrl && isForm ? mapImageToFormModel(category.imageUrl) : category.imageUrl,
+    noOfItems: category.noOfItems
   };
 };
 
@@ -46,7 +47,7 @@ const mapImageToFormModel = image => {
 };
 
 const mapToAPIModel = category => {
-  const image = category.image.length ? category.image[0] : undefined;
+  const image = category.image ? category.image[0] : undefined;
   return {
     name: category.text,
     store: category.store,

@@ -11,7 +11,7 @@ const getItem = async (id, isForm) => {
 
 const getItems = async storeId => {
   const { data } = await apiClient.get(`${endpoint}?store=${storeId}`);
-  return data.map(item => mapToViewModel(item, {}));
+  return data.map(item => mapToViewModel(item));
 };
 
 const postItem = async item => await apiClient.post(endpoint, mapToAPIModel(item));

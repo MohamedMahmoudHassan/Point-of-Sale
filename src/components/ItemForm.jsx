@@ -5,6 +5,7 @@ import DataForm from "./common/DataForm";
 import SelectWithOptions from "./common/SelectWithOptions";
 import categoriesAPI from "../api/categories";
 import DataContext from "./context/dataContext";
+import ImageUpload from "./common/ImageUpload";
 
 export default function ItemForm({ ...rest }) {
   const { t } = useTranslation();
@@ -12,12 +13,9 @@ export default function ItemForm({ ...rest }) {
   const [loading, setLoading] = useState(true);
   const { store } = useContext(DataContext);
 
-  useEffect(
-    () => {
-      if (store) populateCategories();
-    },
-    [store]
-  );
+  useEffect(() => {
+    if (store) populateCategories();
+  }, [store]);
 
   const populateCategories = async () => {
     const data = await categoriesAPI.getCategories(store, { includeDefault: true });
@@ -73,6 +71,15 @@ export default function ItemForm({ ...rest }) {
             }
           ],
           Component: props => <InputNumber min={0} {...props} />
+        },
+        {
+          label: "image",
+          name: "image",
+          otherProps: {
+            valuePropName: "fileList",
+            getValueFromEvent: e => e && e.fileList
+          },
+          Component: props => <ImageUpload {...props} />
         }
       ]}
     />

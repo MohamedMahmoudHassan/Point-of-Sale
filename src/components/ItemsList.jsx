@@ -4,6 +4,7 @@ import DataTable from "./common/DataTable";
 import itemsAPI from "../api/items";
 import categoriesAPI from "../api/categories";
 import DataContext from "./context/dataContext";
+import imageObjInTable from "../Utils/imageObjInTable";
 
 export default function ItemsList() {
   const { t } = useTranslation();
@@ -29,7 +30,8 @@ export default function ItemsList() {
       title: t("items.itemsList.inStock.label"),
       dataIndex: "inStock",
       sorter: { compare: (a, b) => a.inStock - b.inStock }
-    }
+    },
+    imageObjInTable(110)
   ]);
 
   useEffect(

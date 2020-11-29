@@ -3,6 +3,7 @@ import categoriesAPI from "../api/categories";
 import DataTable from "./common/DataTable";
 import { useTranslation } from "react-i18next";
 import DataContext from "./context/dataContext";
+import imageObjInTable from "../Utils/imageObjInTable";
 
 export default function CategoriesList() {
   const { t } = useTranslation();
@@ -19,23 +20,7 @@ export default function CategoriesList() {
       dataIndex: "noOfItems",
       sorter: { compare: (a, b) => a.noOfItems - b.noOfItems }
     },
-    {
-      title: "",
-      dataIndex: "image",
-      width: 110,
-      render(image, record) {
-        return {
-          props: {
-            style: {
-              backgroundImage: `url(${image})`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat"
-            }
-          }
-        };
-      }
-    }
+    imageObjInTable(110)
   ];
 
   const getData = async () => await categoriesAPI.getCategories(store, {});

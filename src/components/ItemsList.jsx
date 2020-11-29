@@ -8,8 +8,19 @@ import imageObjInTable from "../Utils/imageObjInTable";
 
 export default function ItemsList() {
   const { t } = useTranslation();
+  const [categories, setCategories] = useState([]);
   const { store } = useContext(DataContext);
-  const [columns, setColumns] = useState([
+
+  useEffect(() => {
+    populateCategories();
+  }, [store]);
+
+  const populateCategories = async () => {
+    const data = await categoriesAPI.getCategories(store, true);
+    setCategories(data);
+  };
+
+  const columns = [
     {
       title: t("items.itemsList.name.label"),
       dataIndex: "text",
@@ -19,6 +30,7 @@ export default function ItemsList() {
       title: t("items.itemsList.category.label"),
       dataIndex: "category",
       render: category => category.text,
+      filters: categories,
       onFilter: (value, record) => record.category.key === value
     },
     {
@@ -32,23 +44,7 @@ export default function ItemsList() {
       sorter: { compare: (a, b) => a.inStock - b.inStock }
     },
     imageObjInTable(110)
-  ]);
-
-  useEffect(
-    () => {
-      populateCategories();
-    },
-    [store]
-  );
-
-  const populateCategories = async () => {
-    const categories = await categoriesAPI.getCategories(store, { includeDefault: true });
-    const newColumns = [];
-    columns.map(column => newColumns.push({ ...column }));
-
-    newColumns[1]["filters"] = categories;
-    setColumns(newColumns);
-  };
+  ];
 
   const getData = () => itemsAPI.getItems(store);
 

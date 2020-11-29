@@ -17,6 +17,16 @@
       "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" }
     }
   },
+  "stores": {
+    "stores": "المتاجر",
+    "storesList": {
+      "addStore": "إضافة متجر",
+      "storesList": "قائمة المتاجر",
+      "name": { "label": "الاسم", "warning": "ادخل اسم متجر مناسب" },
+      "noOfCategories": { "label": "عدد التصنيفات", "warning": "ادخل رقم مناسب" },
+      "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" }
+    }
+  },
   "formButtons": {
     "save": "حفظ",
     "cancel": "إلغاء",

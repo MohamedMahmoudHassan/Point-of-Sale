@@ -17,6 +17,16 @@
       "noOfItems": { "label": "No. of Items", "warning": "Input valid number" }
     }
   },
+  "stores": {
+    "stores": "stores",
+    "storesList": {
+      "addStore": "Add store",
+      "storesList": "Stores List",
+      "name": { "label": "Name", "warning": "Input valid store name" },
+      "noOfCategories": { "label": "No. of Categories", "warning": "Input valid number" },
+      "noOfItems": { "label": "No. of Items", "warning": "Input valid number" }
+    }
+  },
   "formButtons": {
     "save": "Save",
     "cancel": "Cancel",

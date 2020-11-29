@@ -8,6 +8,7 @@ import NewItem from "./NewItem";
 import Home from "./Home";
 import EditCategory from "./EditCategory";
 import EditItem from "./EditItem";
+import StoresList from "./StoresList";
 
 const { Content } = Layout;
 
@@ -29,6 +30,7 @@ export default function PageContent() {
           <Route path="/items/edit/:id" component={EditItem} />
           <Route path="/items/new" component={NewItem} />
           <Route path="/items" component={ItemsList} />
+          <Route path="/stores" component={StoresList} />
           <Route path="/" component={Home} />
         </Switch>
       </Content>

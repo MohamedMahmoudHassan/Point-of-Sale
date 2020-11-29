@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Layout, Menu } from "antd";
+import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
 import ItemsSubMenu from "./ItemsSubMenu";
 import HomeSubMenu from "./HomeSubMenu";
-import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
+import StoresSubMenu from "./storesSubMenu";
 
 const { Sider } = Layout;
 
@@ -21,6 +22,7 @@ export default function SideMenu() {
       <Menu mode="inline" defaultSelectedKeys={["1"]} style={{ height: "100%", borderRight: 0 }}>
         <HomeSubMenu />
         <ItemsSubMenu />
+        <StoresSubMenu />
       </Menu>
     </Sider>
   );

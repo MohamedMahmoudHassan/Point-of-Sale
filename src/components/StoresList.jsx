@@ -23,14 +23,12 @@ export default function StoresList() {
     }
   ];
 
-  const getData = async () => await storesAPI.getStores();
-
   return (
     <DataTable
       newButtonTitle={t("stores.storesList.addStore")}
       columns={columns}
-      getData={getData}
-      deleteData={() => {}}
+      getData={storesAPI.getStores}
+      deleteData={storesAPI.deleteStores}
       navTo="/stores"
     />
   );

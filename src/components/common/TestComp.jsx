@@ -1,22 +1,9 @@
 import React from "react";
 import api from "../../config/api";
 
-import {
-  Form,
-  Select,
-  InputNumber,
-  Switch,
-  Radio,
-  Slider,
-  Button,
-  Upload,
-  Rate,
-  Checkbox,
-  Row,
-  Col
-} from "antd";
+import { Form, Button, Upload } from "antd";
 import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
-const { Option } = Select;
+
 const formItemLayout = {
   labelCol: {
     span: 6
@@ -42,22 +29,8 @@ export default function TestComp() {
   };
 
   return (
-    <Form
-      name="validate_other"
-      {...formItemLayout}
-      onFinish={onFinish}
-      initialValues={{
-        ["input-number"]: 3,
-        ["checkbox-group"]: ["A", "B"],
-        rate: 3.5
-      }}
-    >
-      <Form.Item
-        name="upload"
-        label="Upload"
-        valuePropName="fileList"
-        getValueFromEvent={normFile}
-      >
+    <Form name="validate_other" {...formItemLayout} onFinish={onFinish} initialValues={{}}>
+      <Form.Item name="upload" label="Upload" valuePropName="fileList" getValueFromEvent={normFile}>
         <Upload name="image" action={api.apiHostStatic} listType="picture">
           <Button icon={<UploadOutlined />}>Click to upload</Button>
         </Upload>

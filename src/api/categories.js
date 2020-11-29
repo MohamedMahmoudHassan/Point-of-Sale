@@ -30,20 +30,12 @@ const mapToViewModel = (category, isForm) => {
     key: category._id,
     value: category._id,
     text: category.name,
-    image: category.imageUrl && isForm ? mapImageToFormModel(category.imageUrl) : category.imageUrl,
+    image:
+      category.imageUrl && isForm
+        ? apiClient.mapImageToFormModel(category.imageUrl)
+        : category.imageUrl,
     noOfItems: category.noOfItems
   };
-};
-
-const mapImageToFormModel = image => {
-  return [
-    {
-      uid: "-1",
-      name: "image.png",
-      status: "done",
-      url: image
-    }
-  ];
 };
 
 const mapToAPIModel = category => {

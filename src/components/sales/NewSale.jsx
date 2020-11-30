@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { List, Card } from "antd";
+import { List } from "antd";
 import DataContext from "./../context/dataContext";
 import itemsAPI from "../../api/items";
+import ItemSaleCard from "./ItemSaleCard";
 
 export default function NewSale() {
   const { store } = useContext(DataContext);
@@ -14,11 +15,9 @@ export default function NewSale() {
 
   const populateItems = async () => {
     console.log(store);
-    const  data = await itemsAPI.getItems(store);
+    const data = await itemsAPI.getItems(store);
     setItems(data);
     setLoading(false);
-    console.log(data);
-    console.log(loading);
   };
 
   return (
@@ -28,7 +27,7 @@ export default function NewSale() {
       loading={loading}
       renderItem={item => (
         <List.Item>
-          <Card title={item.text}>{item.text}</Card>
+          <ItemSaleCard item={item} items={items} setItems={setItems} />
         </List.Item>
       )}
     />

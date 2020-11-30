@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Layout, Menu } from "antd";
 import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
 import HomeSubMenu from "./HomeSubMenu";
+import SalesSubMenu from "./sales/SalesSubMenu";
 import ItemsSubMenu from "./items/ItemsSubMenu";
 import StoresSubMenu from "./stores/storesSubMenu";
 
@@ -21,6 +22,7 @@ export default function SideMenu() {
     >
       <Menu mode="inline" defaultSelectedKeys={["1"]} style={{ height: "100%", borderRight: 0 }}>
         <HomeSubMenu />
+        <SalesSubMenu />
         <ItemsSubMenu />
         <StoresSubMenu />
       </Menu>

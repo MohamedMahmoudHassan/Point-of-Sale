@@ -1,5 +1,9 @@
 {
   "home": "Home",
+  "sales": {
+    "sales": "Sales",
+    "newSale": "New sale"
+  },
   "items": {
     "items": "Items",
     "itemsList": {

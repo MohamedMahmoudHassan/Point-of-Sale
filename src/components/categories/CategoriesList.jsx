@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import categoriesAPI from "../api/categories";
-import DataTable from "./common/DataTable";
 import { useTranslation } from "react-i18next";
-import DataContext from "./context/dataContext";
-import imageObjInTable from "../Utils/imageObjInTable";
+import DataContext from "../context/dataContext";
+import DataTable from "../common/DataTable";
+import imageObjInTable from "../../Utils/imageObjInTable";
+import categoriesAPI from "../../api/categories";
 
 export default function CategoriesList() {
   const { t } = useTranslation();

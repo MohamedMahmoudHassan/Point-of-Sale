@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Input, InputNumber } from "antd";
 import { useTranslation } from "react-i18next";
-import DataForm from "./common/DataForm";
-import SelectWithOptions from "./common/SelectWithOptions";
-import categoriesAPI from "../api/categories";
-import DataContext from "./context/dataContext";
-import ImageUpload from "./common/ImageUpload";
+import DataContext from "../context/dataContext";
+import DataForm from "../common/DataForm";
+import SelectWithOptions from "../common/SelectWithOptions";
+import ImageUpload from "../common/ImageUpload";
+import categoriesAPI from "../../api/categories";
 
 export default function ItemForm({ ...rest }) {
   const { t } = useTranslation();

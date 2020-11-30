@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Layout, Menu } from "antd";
 import SideMenuCollapseContext from "./context/sideMenuCollapseContext";
-import ItemsSubMenu from "./ItemsSubMenu";
 import HomeSubMenu from "./HomeSubMenu";
-import StoresSubMenu from "./storesSubMenu";
+import ItemsSubMenu from "./items/ItemsSubMenu";
+import StoresSubMenu from "./stores/storesSubMenu";
 
 const { Sider } = Layout;
 

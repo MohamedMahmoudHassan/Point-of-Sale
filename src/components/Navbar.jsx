@@ -3,7 +3,7 @@ import { Row, Col, Layout } from "antd";
 import LangController from "./LangController";
 import NavTitle from "./NavTitle";
 import SideMenuToggleButton from "./SideMenuToggleButton";
-import StoreSelector from "./StoreSelector";
+import StoreSelector from "./stores/StoreSelector";
 
 const { Header } = Layout;
 

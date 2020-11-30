@@ -1,7 +1,7 @@
 import React from "react";
 import { Input } from "antd";
 import { useTranslation } from "react-i18next";
-import DataForm from "./common/DataForm";
+import DataForm from "../common/DataForm";
 
 export default function StoreForm({ ...rest }) {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import storesAPI from "../api/stores";
-import DataTable from "./common/DataTable";
+import DataTable from "../common/DataTable";
+import storesAPI from "../../api/stores";
 
 export default function StoresList() {
   const { t } = useTranslation();

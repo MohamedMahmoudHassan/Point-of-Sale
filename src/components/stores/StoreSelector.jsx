@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import SelectWithOptions from "./common/SelectWithOptions";
-import storesAPI from "../api/stores";
-import DataContext from "./context/dataContext";
+import DataContext from "../context/dataContext";
+import SelectWithOptions from "../common/SelectWithOptions";
+import storesAPI from "../../api/stores";
 
 export default function StoreSelector() {
   const [stores, setStores] = useState([]);

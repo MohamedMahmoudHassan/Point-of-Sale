@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import DataTable from "./common/DataTable";
-import itemsAPI from "../api/items";
-import categoriesAPI from "../api/categories";
-import DataContext from "./context/dataContext";
-import imageObjInTable from "../Utils/imageObjInTable";
+import DataContext from "../context/dataContext";
+import DataTable from "../common/DataTable";
+import imageObjInTable from "../../Utils/imageObjInTable";
+import itemsAPI from "../../api/items";
+import categoriesAPI from "../../api/categories";
 
 export default function ItemsList() {
   const { t } = useTranslation();

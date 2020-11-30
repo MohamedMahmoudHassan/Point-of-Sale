@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CategoryForm from "./CategoryForm";
-import categoriesAPI from "../api/categories";
-import DataContext from "./context/dataContext";
+import DataContext from "../context/dataContext";
+import categoriesAPI from "../../api/categories";
 
 export default function EditCategory({ match }) {
   const { store } = useContext(DataContext);

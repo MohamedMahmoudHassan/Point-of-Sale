@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import StoreForm from "./StoreForm";
-import StoresAPI from "../api/stores";
+import StoresAPI from "../../api/stores";
 
 export default function NewStore() {
   const { t } = useTranslation();

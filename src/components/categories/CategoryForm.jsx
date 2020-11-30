@@ -1,8 +1,8 @@
 import React from "react";
 import { Input } from "antd";
 import { useTranslation } from "react-i18next";
-import DataForm from "./common/DataForm";
-import ImageUpload from "./common/ImageUpload";
+import DataForm from "../common/DataForm";
+import ImageUpload from "../common/ImageUpload";
 
 export default function CategoryForm({ ...rest }) {
   const { t } = useTranslation();

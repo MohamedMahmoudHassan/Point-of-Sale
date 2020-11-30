@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
+import DataContext from "../context/dataContext";
 import ItemForm from "./ItemForm";
-import itemsAPI from "../api/items";
-import DataContext from "./context/dataContext";
+import itemsAPI from "../../api/items";
 
 export default function EditItem({ match }) {
   const { store } = useContext(DataContext);

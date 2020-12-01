@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar } from "antd";
 import colors from "../../config/colors";
+import api from "../../config/api";
 
 export default function NewSaleItems({ items }) {
   return (
@@ -10,7 +11,13 @@ export default function NewSaleItems({ items }) {
           item.quantity > 0 && (
             <Avatar
               key={item.key}
-              src={<img src={item.image} alt={item.text} title={`${item.quantity} ${item.text}`} />}
+              src={
+                <img
+                  src={item.image || api.altImage}
+                  alt={item.text}
+                  title={`${item.quantity} ${item.text}`}
+                />
+              }
             />
           )
       )}

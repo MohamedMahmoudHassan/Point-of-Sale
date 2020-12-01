@@ -1,6 +1,7 @@
 import React from "react";
 import { Badge, Button, Card } from "antd";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
+import api from "../../config/api";
 
 const { Meta } = Card;
 
@@ -19,7 +20,13 @@ export default function ItemSaleCard({ item, items, setItems, total, setTotal })
     <Badge count={item.quantity}>
       <Card
         hoverable
-        cover={<img style={{ height: 200, objectFit: "cover" }} alt={item.text} src={item.image} />}
+        cover={
+          <img
+            style={{ height: 200, objectFit: "cover" }}
+            alt={item.text}
+            src={item.image || api.altImage}
+          />
+        }
         actions={[
           <Button type="primary" onClick={() => changeItemQuantity(item, { value: 1 })}>
             <PlusOutlined key="plus" /> 1

@@ -9,6 +9,7 @@ export default function NewSale() {
   const { store } = useContext(DataContext);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     populateItems();
@@ -22,14 +23,20 @@ export default function NewSale() {
 
   return (
     <div>
-      <SaleStatusBar items={items} />
+      <SaleStatusBar items={items} total={total} />
       <List
         grid={{ gutter: 16, column: 4 }}
         dataSource={items}
         loading={loading}
         renderItem={item => (
           <List.Item>
-            <ItemSaleCard item={item} items={items} setItems={setItems} />
+            <ItemSaleCard
+              item={item}
+              items={items}
+              setItems={setItems}
+              total={total}
+              setTotal={setTotal}
+            />
           </List.Item>
         )}
       />

@@ -1,8 +1,13 @@
 {
   "home": "Home",
   "sales": {
-    "sales": "Sales",
-    "newSale": "New sale"
+    "newSale": {
+      "sales": "Sales",
+      "newSale": "New Sale",
+      "makeSale": "Make Sale",
+      "cancel": "Cancel",
+      "total": "Total"
+    }
   },
   "items": {
     "items": "Items",
@@ -45,5 +50,6 @@
     "cancel": "No",
     "deleting": "Deleting...",
     "deleteSuccess": "Deleted successfully!"
-  }
+  },
+  "currency": "EGP"
 }

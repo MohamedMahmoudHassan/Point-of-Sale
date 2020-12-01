@@ -22,5 +22,5 @@ export default value => {
     value = toInteger(value / 1000);
   }
 
-  return `${ret.reverse().join()} EGP`;
+  return ret.reverse().join();
 };

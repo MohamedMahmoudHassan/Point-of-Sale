@@ -3,6 +3,7 @@ import { List } from "antd";
 import DataContext from "./../context/dataContext";
 import itemsAPI from "../../api/items";
 import ItemSaleCard from "./ItemSaleCard";
+import SaleStatusBar from "./NewSaleBar";
 
 export default function NewSale() {
   const { store } = useContext(DataContext);
@@ -14,22 +15,24 @@ export default function NewSale() {
   }, [store]);
 
   const populateItems = async () => {
-    console.log(store);
     const data = await itemsAPI.getItems(store);
     setItems(data);
     setLoading(false);
   };
 
   return (
-    <List
-      grid={{ gutter: 16, column: 4 }}
-      dataSource={items}
-      loading={loading}
-      renderItem={item => (
-        <List.Item>
-          <ItemSaleCard item={item} items={items} setItems={setItems} />
-        </List.Item>
-      )}
-    />
+    <div>
+      <SaleStatusBar items={items} />
+      <List
+        grid={{ gutter: 16, column: 4 }}
+        dataSource={items}
+        loading={loading}
+        renderItem={item => (
+          <List.Item>
+            <ItemSaleCard item={item} items={items} setItems={setItems} />
+          </List.Item>
+        )}
+      />
+    </div>
   );
 }

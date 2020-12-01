@@ -26,7 +26,12 @@ export default function ItemSaleCard({ item, items, setItems }) {
           <Button type="primary" onClick={() => incItemQuantity(item, { value: 10 })}>
             <PlusOutlined key="plus" /> 10
           </Button>,
-          <Button type="primary" danger onClick={() => incItemQuantity(item, { reset: true })}>
+          <Button
+            type="primary"
+            danger
+            disabled={!item.quantity}
+            onClick={() => incItemQuantity(item, { reset: true })}
+          >
             <DeleteOutlined key="plus" />
           </Button>
         ]}

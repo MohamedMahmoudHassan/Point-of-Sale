@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Upload, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import api from "../../config/api";
+import { useTranslation } from "react-i18next";
 
 export default function ImageUpload(props) {
+  const { t } = useTranslation();
+
   const getBase64 = file => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -30,7 +33,7 @@ export default function ImageUpload(props) {
   const uploadButton = (
     <div>
       <PlusOutlined />
-      <div style={{ marginTop: 8 }}>Upload</div>
+      <div style={{ marginTop: 8 }}>{t("formButtons.upload")}</div>
     </div>
   );
 

@@ -17,13 +17,15 @@
       "name": { "label": "الاسم", "warning": "ادخل اسم عنصر مناسب" },
       "category": { "label": "التصنيف", "warning": "ادخل تصنيف مناسب" },
       "price": { "label": "السعر", "warning": "ادخل رقم مناسب" },
-      "inStock": { "label": "في المخزن", "warning": "ادخل رقم مناسب" }
+      "inStock": { "label": "في المخزن", "warning": "ادخل رقم مناسب" },
+      "image": { "label": "صورة" }
     },
     "categoriesList": {
       "addCategory": "إضافة تصنيف",
       "categoriesList": "قائمة التصنيفات",
       "name": { "label": "الاسم", "warning": "ادخل اسم تصنيف مناسب" },
-      "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" }
+      "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" },
+      "image": { "label": "صورة" }
     }
   },
   "stores": {
@@ -40,7 +42,8 @@
     "save": "حفظ",
     "cancel": "إلغاء",
     "saving": "جاري الحفظ...",
-    "saveSuccess": "تم الحفظ!"
+    "saveSuccess": "تم الحفظ!",
+    "upload": "تحميل"
   },
   "tableButtons": {
     "edit": "تعديل",

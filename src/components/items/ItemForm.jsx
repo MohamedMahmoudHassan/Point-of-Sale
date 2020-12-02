@@ -73,7 +73,7 @@ export default function ItemForm({ ...rest }) {
           Component: props => <InputNumber min={0} {...props} />
         },
         {
-          label: "image",
+          label: t("items.itemsList.image.label"),
           name: "image",
           otherProps: {
             valuePropName: "fileList",

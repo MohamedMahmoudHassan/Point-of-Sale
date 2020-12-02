@@ -17,13 +17,15 @@
       "name": { "label": "Name", "warning": "Input valid item name" },
       "category": { "label": "Category", "warning": "Input valid category" },
       "price": { "label": "Price", "warning": "Input valid number" },
-      "inStock": { "label": "In Stock", "warning": "Input valid number" }
+      "inStock": { "label": "In Stock", "warning": "Input valid number" },
+      "image": { "label": "Image" }
     },
     "categoriesList": {
       "addCategory": "Add Category",
       "categoriesList": "Categories List",
       "name": { "label": "Name", "warning": "Input valid category name" },
-      "noOfItems": { "label": "No. of Items", "warning": "Input valid number" }
+      "noOfItems": { "label": "No. of Items", "warning": "Input valid number" },
+      "image": { "label": "Image" }
     }
   },
   "stores": {
@@ -40,7 +42,8 @@
     "save": "Save",
     "cancel": "Cancel",
     "saving": "Saving...",
-    "saveSuccess": "Saved successfully!"
+    "saveSuccess": "Saved successfully!",
+    "upload": "Upload"
   },
   "tableButtons": {
     "edit": "Edit",

@@ -19,7 +19,7 @@ export default function CategoryForm({ ...rest }) {
           Component: Input
         },
         {
-          label: "image",
+          label: t("items.categoriesList.image.label"),
           name: "image",
           otherProps: {
             valuePropName: "fileList",

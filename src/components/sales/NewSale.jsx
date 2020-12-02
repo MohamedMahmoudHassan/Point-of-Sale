@@ -26,22 +26,18 @@ export default function NewSale() {
     setLoading(false);
   };
 
+  const state = { items, setItems, total, setTotal };
+
   return (
     <div>
-      <SaleStatusBar items={items} setItems={setItems} total={total} />
+      <SaleStatusBar {...state} />
       <List
         grid={{ gutter: 16, column: 4 }}
         dataSource={items}
         loading={loading}
         renderItem={item => (
           <List.Item>
-            <ItemSaleCard
-              item={item}
-              items={items}
-              setItems={setItems}
-              total={total}
-              setTotal={setTotal}
-            />
+            <ItemSaleCard item={item} {...state} />
           </List.Item>
         )}
       />

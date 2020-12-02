@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
 
-export default function NewSaleButtons({ total, items, setItems }) {
+export default function NewSaleButtons({ total, setTotal, items, setItems }) {
   const { t } = useTranslation();
   const options = {
     size: "large",
@@ -12,6 +12,7 @@ export default function NewSaleButtons({ total, items, setItems }) {
 
   const resetItemsQuantities = () => {
     const newItems = [...items];
+    setTotal(0);
     setItems(
       newItems.map(item => {
         item.quantity = 0;

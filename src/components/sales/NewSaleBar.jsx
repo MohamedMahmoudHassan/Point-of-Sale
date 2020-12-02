@@ -4,19 +4,19 @@ import NewSaleButtons from "./NewSaleButtons";
 import NewSaleItems from "./NewSaleItems";
 import NewSaleTotal from "./NewSaleTotal";
 
-export default function NewSaleBar({ items, setItems, total }) {
+export default function NewSaleBar(props) {
   const colStyle = { display: "flex", alignItems: "center" };
 
   return (
     <Row justify="space-between" style={{ marginBottom: 10 }}>
       <Col span={4} style={colStyle}>
-        <NewSaleItems items={items} />
+        <NewSaleItems items={props.items} />
       </Col>
       <Col span="auto" style={colStyle}>
-        <NewSaleTotal total={total} />
+        <NewSaleTotal total={props.total} />
       </Col>
       <Col span={4} style={colStyle}>
-        <NewSaleButtons total={total} items={items} setItems={setItems} />
+        <NewSaleButtons {...props} />
       </Col>
     </Row>
   );

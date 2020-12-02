@@ -16,7 +16,7 @@ export default function NewSaleBar({ items, total }) {
         <NewSaleTotal total={total} />
       </Col>
       <Col span={4} style={colStyle}>
-        <NewSaleButtons />
+        <NewSaleButtons total={total} />
       </Col>
     </Row>
   );

@@ -17,7 +17,12 @@ export default function NewSale() {
 
   const populateItems = async () => {
     const data = await itemsAPI.getItems(store);
-    setItems(data);
+    setItems(
+      data.map(item => {
+        item.quantity = 0;
+        return item;
+      })
+    );
     setLoading(false);
   };
 

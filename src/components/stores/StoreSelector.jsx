@@ -14,7 +14,9 @@ export default function StoreSelector() {
   const populateStores = async () => {
     const data = await storesAPI.getStores();
     setStores(data);
-    if (!localStorage.getItem("store")) localStorage.setItem("store", data[0].value);
+    const localStorageStore = localStorage.getItem("store");
+    if (!localStorageStore || !data.filter(store => store.value === localStorageStore).length)
+      localStorage.setItem("store", data[0].value);
     setStore(localStorage.getItem("store"));
   };
 

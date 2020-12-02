@@ -4,7 +4,7 @@ import NewSaleButtons from "./NewSaleButtons";
 import NewSaleItems from "./NewSaleItems";
 import NewSaleTotal from "./NewSaleTotal";
 
-export default function NewSaleBar({ items, total }) {
+export default function NewSaleBar({ items, setItems, total }) {
   const colStyle = { display: "flex", alignItems: "center" };
 
   return (
@@ -16,7 +16,7 @@ export default function NewSaleBar({ items, total }) {
         <NewSaleTotal total={total} />
       </Col>
       <Col span={4} style={colStyle}>
-        <NewSaleButtons total={total} />
+        <NewSaleButtons total={total} items={items} setItems={setItems} />
       </Col>
     </Row>
   );

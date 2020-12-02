@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
 
-export default function NewSaleButtons({ total }) {
+export default function NewSaleButtons({ total, items, setItems }) {
   const { t } = useTranslation();
   const options = {
     size: "large",
@@ -10,12 +10,22 @@ export default function NewSaleButtons({ total }) {
     style: { marginBottom: 5, width: 150 }
   };
 
+  const resetItemsQuantities = () => {
+    const newItems = [...items];
+    setItems(
+      newItems.map(item => {
+        item.quantity = 0;
+        return item;
+      })
+    );
+  };
+
   return (
     <div>
       <Button type="primary" {...options}>
         {t("sales.newSale.makeSale")}
       </Button>
-      <Button type="ghost" {...options}>
+      <Button type="ghost" {...options} onClick={resetItemsQuantities}>
         {t("sales.newSale.cancel")}
       </Button>
     </div>

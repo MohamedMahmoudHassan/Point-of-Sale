@@ -28,7 +28,7 @@ export default function NewSale() {
 
   return (
     <div>
-      <SaleStatusBar items={items} total={total} />
+      <SaleStatusBar items={items} setItems={setItems} total={total} />
       <List
         grid={{ gutter: 16, column: 4 }}
         dataSource={items}

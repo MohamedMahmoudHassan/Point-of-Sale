@@ -3,8 +3,8 @@ import { Badge, Button, Card } from "antd";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import api from "../../config/api";
 import { useTranslation } from "react-i18next";
+import ItemSaleMeta from "./ItemSaleMeta";
 
-const { Meta } = Card;
 
 export default function ItemSaleCard({ item, items, setItems, total, setTotal }) {
   const { t } = useTranslation();
@@ -57,10 +57,7 @@ export default function ItemSaleCard({ item, items, setItems, total, setTotal })
           </Button>
         ]}
       >
-        <Meta
-          title={item.text}
-          description={`${item.price} ${t("currency")} - ${item.inStock} in stock`}
-        />
+        <ItemSaleMeta item={item} />
       </Card>
     </Badge>
   );

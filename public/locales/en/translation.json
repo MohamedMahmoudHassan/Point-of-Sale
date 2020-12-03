@@ -1,13 +1,13 @@
 {
   "home": "Home",
   "sales": {
-    "newSale": {
-      "sales": "Sales",
-      "newSale": "New Sale",
-      "makeSale": "Make Sale",
-      "cancel": "Cancel",
-      "total": "Total"
-    }
+    "salesList": "Sales List",
+    "sales": "Sales",
+    "newSale": "New Sale",
+    "makeSale": "Make Sale",
+    "cancel": "Cancel",
+    "total": "Total",
+    "quantity": "Quantity"
   },
   "items": {
     "items": "Items",

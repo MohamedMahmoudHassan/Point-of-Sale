@@ -24,10 +24,10 @@ export default function NewSaleButtons({ total, setTotal, items, setItems }) {
   return (
     <div>
       <Button type="primary" {...options}>
-        {t("sales.newSale.makeSale")}
+        {t("sales.makeSale")}
       </Button>
       <Button type="ghost" {...options} onClick={resetItemsQuantities}>
-        {t("sales.newSale.cancel")}
+        {t("sales.cancel")}
       </Button>
     </div>
   );

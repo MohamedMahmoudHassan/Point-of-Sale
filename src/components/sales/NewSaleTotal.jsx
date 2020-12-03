@@ -12,7 +12,7 @@ export default function NewSaleTotal({ total }) {
     <div>
       {total > 0 && (
         <Title level={3}>
-          {t("sales.newSale.total")}: {formatIntAsCurrency(total)} {t("currency")}
+          {t("sales.total")}: {formatIntAsCurrency(total)} {t("currency")}
         </Title>
       )}
     </div>

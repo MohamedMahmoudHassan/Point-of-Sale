@@ -15,14 +15,12 @@ export default function SalesSubMenu(props) {
   };
 
   return (
-    <SubMenu
-      key="items"
-      icon={<ShoppingCartOutlined />}
-      title={t("sales.newSale.sales")}
-      {...props}
-    >
+    <SubMenu key="items" icon={<ShoppingCartOutlined />} title={t("sales.sales")} {...props}>
       <Menu.Item key="newSale" onClick={() => handleNav("/sales/new")}>
-        {t("sales.newSale.newSale")}
+        {t("sales.newSale")}
+      </Menu.Item>
+      <Menu.Item key="salesList" onClick={() => handleNav("/sales")}>
+        {t("sales.salesList")}
       </Menu.Item>
     </SubMenu>
   );

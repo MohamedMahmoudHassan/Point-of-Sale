@@ -53,5 +53,7 @@ export default {
   getItems,
   postItem,
   putItem,
-  deleteItems
+  deleteItems,
+  mapToViewModel,
+  mapToAPIModel
 };

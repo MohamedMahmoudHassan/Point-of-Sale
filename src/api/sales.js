@@ -30,11 +30,14 @@ const mapToViewModel = sale => {
 
 const mapToAPIModel = sale => {
   return {
-    items: sale.items.map(item => {
-      return { item: item.item.key, quantity: item.quantity };
-    }),
+    items: sale.items
+      .filter(item => item.quantity)
+      .map(item => {
+        return { item: item.item.key, quantity: item.quantity };
+      }),
     status: sale.status,
-    lastUpdateOn: sale.lastUpdateOn
+    lastUpdateOn: Date.now(),
+    store: sale.store
   };
 };
 

@@ -4,8 +4,9 @@ import SaleSummaryCard from "./SaleSummaryCard";
 import DataContext from "./../context/dataContext";
 import salesAPI from "../../api/sales";
 
-export default function SaleSummary() {
+export default function SaleSummary({ match }) {
   const [sale, setSale] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { store } = useContext(DataContext);
 
   useEffect(() => {
@@ -13,14 +14,16 @@ export default function SaleSummary() {
   }, [store]);
 
   const populateItems = async () => {
-    const data = await salesAPI.getSale("5fc8bec9ab46b10dd40ec85d");
+    const data = await salesAPI.getSale(match.params.id);
     setSale(data);
+    setLoading(false);
   };
 
   return (
     <List
       itemLayout="vertical"
       size="large"
+      loading={loading}
       dataSource={sale.items}
       renderItem={item => <SaleSummaryCard item={item} sale={sale} setSale={setSale} />}
     />

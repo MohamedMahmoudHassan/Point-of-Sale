@@ -6,8 +6,8 @@ import SaleSummary from './SaleSummary';
 export default function SalesNavigation() {
   return (
     <Switch>
+      <Route path="/sales/summary/:id" component={SaleSummary} />
       <Route path="/sales/new" component={NewSale} />
-      <Route path="/sales" component={SaleSummary} />
     </Switch>
   );
 }

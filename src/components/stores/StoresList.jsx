@@ -30,6 +30,8 @@ export default function StoresList() {
       getData={storesAPI.getStores}
       deleteData={storesAPI.deleteStores}
       navTo="/stores"
+      withSelection={true}
+      withButtons={true}
     />
   );
 }

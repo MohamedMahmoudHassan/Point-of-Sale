@@ -32,6 +32,8 @@ export default function CategoriesList() {
       getData={getData}
       deleteData={categoriesAPI.deleteCategories}
       navTo="/items/categories"
+      withSelection={true}
+      withButtons={true}
     />
   );
 }

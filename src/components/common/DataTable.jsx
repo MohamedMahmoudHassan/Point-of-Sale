@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "antd";
 import TableButtons from "./TableButtons";
+import { useHistory } from "react-router-dom";
 
-export default function DataTable({ newButtonTitle, columns, getData, deleteData, navTo }) {
+export default function DataTable({
+  newButtonTitle,
+  columns,
+  getData,
+  deleteData,
+  navTo,
+  clickable,
+  withSelection,
+  withButtons
+}) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedRowsKeys, setSelectedRowsKeys] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     populateData();
@@ -27,19 +38,31 @@ export default function DataTable({ newButtonTitle, columns, getData, deleteData
 
   return (
     <div>
-      <TableButtons
-        newTitle={newButtonTitle}
-        selectedRowsKeys={selectedRowsKeys}
-        navTo={navTo}
-        handleDelete={handleDelete}
-      />
+      {withButtons && (
+        <TableButtons
+          newTitle={newButtonTitle}
+          selectedRowsKeys={selectedRowsKeys}
+          navTo={navTo}
+          handleDelete={handleDelete}
+        />
+      )}
       <Table
+        rowClassName={clickable && "tableRow"}
         columns={columns}
         dataSource={data}
         loading={loading}
-        rowSelection={{
-          type: "checkbox",
-          onChange: selectedRowKeys => setSelectedRowsKeys(selectedRowKeys)
+        rowSelection={
+          withSelection && {
+            type: "checkbox",
+            onChange: selectedRowKeys => setSelectedRowsKeys(selectedRowKeys)
+          }
+        }
+        onRow={(record, rowIndex) => {
+          return (
+            clickable && {
+              onClick: () => history.push(`${navTo}/${record.key}`)
+            }
+          );
         }}
       />
     </div>

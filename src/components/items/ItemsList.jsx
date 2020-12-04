@@ -55,6 +55,8 @@ export default function ItemsList() {
       getData={getData}
       deleteData={itemsAPI.deleteItems}
       navTo="/items"
+      withSelection={true}
+      withButtons={true}
     />
   );
 }

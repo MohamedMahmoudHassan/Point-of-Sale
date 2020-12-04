@@ -3,3 +3,7 @@
   background-color: white;
   padding: 30px 20px 1px 20px;
 }
+
+.tableRow {
+  cursor: pointer;
+}

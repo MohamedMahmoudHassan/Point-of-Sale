@@ -1,7 +1,7 @@
 {
   "home": "الرئيسية",
   "sales": {
-    "salesList": "قائمة عمليات تالبع",
+    "salesList": "قائمة عمليات البيع",
     "noOfItems": "عدد العناصر",
     "status": "الحالة",
     "lastUpdate": "آخر تحديث",
@@ -9,8 +9,12 @@
     "newSale": "عملية بيع جديدة",
     "makeSale": "إتمام العملية",
     "cancel": "إلغاء",
+    "delete": "مسح",
     "total": "إجمالي",
-    "quantity": "الكمية"
+    "quantity": "الكمية",
+    "completeSale": "استكمال عملية البيع",
+    "saveAsDraft": "حفظ كمسودة",
+    "cancelSale": "إلغاء عملية البيع"
   },
   "items": {
     "items": "العناصر",

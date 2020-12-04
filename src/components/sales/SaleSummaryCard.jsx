@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { List, InputNumber, Button } from "antd";
 import ItemSaleMeta from "./ItemSaleMeta";
 import { useTranslation } from "react-i18next";
@@ -29,7 +29,7 @@ export default function SaleSummaryCard({ item, sale, setSale }) {
         </div>,
         <div>{`${formatIntAsCurrency(item.quantity * item.item.price)} ${t("currency")}`}</div>,
         <Button type="primary" danger onClick={onDelete}>
-          Delete
+          {t("sales.delete")}
         </Button>
       ]}
       extra={

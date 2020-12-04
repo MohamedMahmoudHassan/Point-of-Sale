@@ -9,8 +9,12 @@
     "newSale": "New Sale",
     "makeSale": "Make Sale",
     "cancel": "Cancel",
+    "delete": "Delete",
     "total": "Total",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "completeSale": "Complete Sale",
+    "saveAsDraft": "Save As Draft",
+    "cancelSale": "Cancel Sale"
   },
   "items": {
     "items": "Items",

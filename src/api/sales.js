@@ -3,6 +3,12 @@ import api from "../config/api";
 import itemsAPI from "./items";
 
 const endpoint = api.apiHost + "/sales";
+const salesStatus = [
+  { value: "Created", text: "Created" },
+  { value: "Completed", text: "Completed" },
+  { value: "Cancelled", text: "Cancelled" }
+];
+const statusColor = { Created: "processing", Completed: "success", Cancelled: "error" };
 
 const getSale = async id => {
   const { data } = await apiClient.get(`${endpoint}/${id}`);
@@ -50,5 +56,7 @@ const mapToAPIModel = sale => {
 export default {
   getSale,
   getSales,
-  postSale
+  postSale,
+  salesStatus,
+  statusColor
 };

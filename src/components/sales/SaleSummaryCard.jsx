@@ -18,16 +18,9 @@ export default function SaleSummaryCard({ item, sale, setSale }) {
       style={{ backgroundColor: "white" }}
       key={item.item.text}
       actions={[
-        <div>
-          {t("sales.quantity")}
-          <InputNumber
-            min={1}
-            max={item.item.inStock}
-            defaultValue={item.quantity}
-            style={{ marginLeft: 20 }}
-          />
-        </div>,
-        <div>{`${formatIntAsCurrency(item.quantity * item.item.price)} ${t("currency")}`}</div>,
+        t("sales.quantity"),
+        <InputNumber min={1} max={item.item.inStock} defaultValue={item.quantity} />,
+        `${formatIntAsCurrency(item.quantity * item.item.price)} ${t("currency")}`,
         <Button type="primary" danger onClick={onDelete}>
           {t("sales.delete")}
         </Button>

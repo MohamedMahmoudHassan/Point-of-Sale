@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Tag } from "antd";
 import DataTable from "./../common/DataTable";
 import salesAPI from "../../api/sales";
 import { useTranslation } from "react-i18next";
@@ -11,7 +12,10 @@ export default function SalesList() {
   const columns = [
     {
       title: t("sales.status"),
-      dataIndex: "status"
+      dataIndex: "status",
+      filters: salesAPI.salesStatus,
+      onFilter: (value, record) => record.status === value,
+      render: status => <Tag color={salesAPI.statusColor[status]}>{status}</Tag>
     },
     {
       title: t("sales.noOfItems"),

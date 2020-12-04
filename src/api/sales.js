@@ -23,18 +23,24 @@ const mapToViewModel = sale => {
     items: sale.items.map(saleItem => {
       return { item: itemsAPI.mapToViewModel(saleItem.item), quantity: saleItem.quantity };
     }),
+    total: sale.total,
     status: sale.status,
     lastUpdateOn: sale.lastUpdateOn
   };
 };
 
 const mapToAPIModel = sale => {
+  let total = 0;
+  const items = sale.items
+    .filter(item => item.quantity)
+    .map(item => {
+      total += item.item.price * item.quantity;
+      return { item: item.item.key, quantity: item.quantity };
+    });
+
   return {
-    items: sale.items
-      .filter(item => item.quantity)
-      .map(item => {
-        return { item: item.item.key, quantity: item.quantity };
-      }),
+    items,
+    total,
     status: sale.status,
     lastUpdateOn: Date.now(),
     store: sale.store

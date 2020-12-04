@@ -2,6 +2,9 @@
   "home": "Home",
   "sales": {
     "salesList": "Sales List",
+    "noOfItems": "No of Items",
+    "status": "Status",
+    "lastUpdate": "Last Update",
     "sales": "Sales",
     "newSale": "New Sale",
     "makeSale": "Make Sale",

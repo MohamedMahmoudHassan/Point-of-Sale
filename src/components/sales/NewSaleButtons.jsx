@@ -32,6 +32,7 @@ export default function NewSaleButtons({ total, setTotal, items, setItems }) {
       items: items.map(item => {
         return { item, quantity: item.quantity };
       }),
+      total,
       store,
       status: "Created"
     };

@@ -16,10 +16,8 @@ const getItems = async storeId => {
 
 const postItem = async item => await apiClient.post(endpoint, mapToAPIModel(item));
 
-const putItem = async (id, item) => {
-  const response = await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(item));
-  return response;
-};
+const putItem = async (id, item) => await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(item));
+
 const deleteItems = async itemsIds => await apiClient.delete(endpoint, { data: { itemsIds } });
 
 const mapToViewModel = (item, isForm) => {

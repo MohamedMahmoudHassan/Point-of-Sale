@@ -10,8 +10,7 @@ const getStore = async id => {
 
 const getStores = async () => {
   const { data } = await apiClient.get(endpoint);
-  const stores = data.map(store => mapToViewModel(store));
-  return stores;
+  return data.map(store => mapToViewModel(store));
 };
 
 const postStore = async store => await apiClient.post(endpoint, mapToAPIModel(store));

@@ -5,10 +5,16 @@ import itemsAPI from "./items";
 const endpoint = api.apiHost + "/sales";
 const salesStatus = [
   { value: "Created", text: "Created" },
+  { value: "Updated", text: "Updated" },
   { value: "Completed", text: "Completed" },
   { value: "Cancelled", text: "Cancelled" }
 ];
-const statusColor = { Created: "processing", Completed: "success", Cancelled: "error" };
+const statusColor = {
+  Created: "processing",
+  Updated: "warning",
+  Completed: "success",
+  Cancelled: "error"
+};
 
 const getSale = async id => {
   const { data } = await apiClient.get(`${endpoint}/${id}`);
@@ -17,11 +23,12 @@ const getSale = async id => {
 
 const getSales = async storeId => {
   const { data } = await apiClient.get(`${endpoint}?store=${storeId}`);
-  const sales = data.map(sale => mapToViewModel(sale));
-  return sales;
+  return data.map(sale => mapToViewModel(sale));
 };
 
 const postSale = async sale => await apiClient.post(endpoint, mapToAPIModel(sale));
+
+const putSale = async (id, sale) => await apiClient.put(`${endpoint}/${id}`, mapToAPIModel(sale));
 
 const mapToViewModel = sale => {
   return {
@@ -36,17 +43,13 @@ const mapToViewModel = sale => {
 };
 
 const mapToAPIModel = sale => {
-  let total = 0;
-  const items = sale.items
-    .filter(item => item.quantity)
-    .map(item => {
-      total += item.item.price * item.quantity;
-      return { item: item.item.key, quantity: item.quantity };
-    });
-
   return {
-    items,
-    total,
+    items: sale.items
+      .filter(item => item.quantity)
+      .map(item => {
+        return { item: item.item.key, quantity: item.quantity };
+      }),
+    total: sale.total,
     status: sale.status,
     lastUpdateOn: Date.now(),
     store: sale.store
@@ -57,6 +60,7 @@ export default {
   getSale,
   getSales,
   postSale,
+  putSale,
   salesStatus,
   statusColor
 };

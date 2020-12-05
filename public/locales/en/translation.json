@@ -15,7 +15,8 @@
     "completeSale": "Complete Sale",
     "saveAsDraft": "Save As Draft",
     "cancelSale": "Cancel Sale",
-    "empty": "No Sales"
+    "empty": "No Sales",
+    "back": "Back"
   },
   "items": {
     "items": "Items",

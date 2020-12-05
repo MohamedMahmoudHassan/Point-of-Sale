@@ -4,6 +4,7 @@ import DataContext from "./../context/dataContext";
 import itemsAPI from "../../api/items";
 import ItemSaleCard from "./ItemSaleCard";
 import SaleStatusBar from "./NewSaleBar";
+import EmptyComp from "./../common/Empty";
 
 export default function NewSale() {
   const { store } = useContext(DataContext);
@@ -35,6 +36,7 @@ export default function NewSale() {
         grid={{ gutter: 16, column: 4 }}
         dataSource={items}
         loading={loading}
+        locale={{ emptyText: <EmptyComp /> }}
         renderItem={item => (
           <List.Item>
             <ItemSaleCard item={item} {...state} />

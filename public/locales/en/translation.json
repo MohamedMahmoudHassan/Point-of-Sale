@@ -61,5 +61,8 @@
     "deleting": "Deleting...",
     "deleteSuccess": "Deleted successfully!"
   },
-  "currency": "EGP"
+  "currency": "EGP",
+  "empty": {
+    "noData": "No Data"
+  }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import i18next from "i18next";
+import EmptyComp from "./../common/Empty";
 
 export default function DataTableLocale() {
   const [language, setLanguage] = useState(i18next.language);
@@ -25,5 +26,5 @@ export default function DataTableLocale() {
 
   i18next.on("languageChanged", lng => setLanguage(lng));
 
-  return locale[language];
+  return { ...locale[language], emptyText: <EmptyComp /> };
 }

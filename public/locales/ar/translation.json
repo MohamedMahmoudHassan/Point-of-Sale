@@ -61,5 +61,8 @@
     "deleting": "جاري المسح...",
     "deleteSuccess": "تم المسح!"
   },
-  "currency": "ج.م"
+  "currency": "ج.م",
+  "empty": {
+    "noData": "لا يوجد"
+  }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "antd";
 import TableButtons from "./TableButtons";
 import { useHistory } from "react-router-dom";
+import DataTableLocale from "../locale/DataTableLocale";
 
 export default function DataTable({
   newButtonTitle,
@@ -51,19 +52,14 @@ export default function DataTable({
         columns={columns}
         dataSource={data}
         loading={loading}
+        locale={DataTableLocale()}
         rowSelection={
           withSelection && {
             type: "checkbox",
             onChange: selectedRowKeys => setSelectedRowsKeys(selectedRowKeys)
           }
         }
-        onRow={(record, rowIndex) => {
-          return (
-            clickable && {
-              onClick: () => history.push(`${navTo}/${record.key}`)
-            }
-          );
-        }}
+        onRow={record => clickable && { onClick: () => history.push(`${navTo}/${record.key}`) }}
       />
     </div>
   );

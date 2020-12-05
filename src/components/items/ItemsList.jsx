@@ -57,6 +57,7 @@ export default function ItemsList() {
       navTo="/items"
       withSelection={true}
       withButtons={true}
+      emptyText={t("items.itemsList.empty")}
     />
   );
 }

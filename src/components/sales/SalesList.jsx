@@ -46,6 +46,7 @@ export default function SalesList() {
       deleteData={() => {}}
       navTo="/sales/summary"
       clickable={true}
+      emptyText={t("sales.empty")}
     />
   );
 }

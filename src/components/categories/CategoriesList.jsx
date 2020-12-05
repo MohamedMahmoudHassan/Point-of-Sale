@@ -34,6 +34,7 @@ export default function CategoriesList() {
       navTo="/items/categories"
       withSelection={true}
       withButtons={true}
+      emptyText={t("items.categoriesList.empty")}
     />
   );
 }

@@ -14,7 +14,8 @@
     "quantity": "الكمية",
     "completeSale": "استكمال عملية البيع",
     "saveAsDraft": "حفظ كمسودة",
-    "cancelSale": "إلغاء عملية البيع"
+    "cancelSale": "إلغاء عملية البيع",
+    "empty": "لا يوجد عمليات بيع"
   },
   "items": {
     "items": "العناصر",
@@ -25,14 +26,16 @@
       "category": { "label": "التصنيف", "warning": "ادخل تصنيف مناسب" },
       "price": { "label": "السعر", "warning": "ادخل رقم مناسب" },
       "inStock": { "label": "في المخزن", "warning": "ادخل رقم مناسب" },
-      "image": { "label": "صورة" }
+      "image": { "label": "صورة" },
+      "empty": "لا يوجد عناصر"
     },
     "categoriesList": {
       "addCategory": "إضافة تصنيف",
       "categoriesList": "قائمة التصنيفات",
       "name": { "label": "الاسم", "warning": "ادخل اسم تصنيف مناسب" },
       "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" },
-      "image": { "label": "صورة" }
+      "image": { "label": "صورة" },
+      "empty": "لا يوجد تصنيفات"
     }
   },
   "stores": {
@@ -42,7 +45,8 @@
       "storesList": "قائمة المتاجر",
       "name": { "label": "الاسم", "warning": "ادخل اسم متجر مناسب" },
       "noOfCategories": { "label": "عدد التصنيفات", "warning": "ادخل رقم مناسب" },
-      "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" }
+      "noOfItems": { "label": "عدد العناصر", "warning": "ادخل رقم مناسب" },
+      "empty": "لا يوجد متاجر"
     }
   },
   "formButtons": {

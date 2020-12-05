@@ -32,6 +32,7 @@ export default function StoresList() {
       navTo="/stores"
       withSelection={true}
       withButtons={true}
+      emptyText={t("stores.storesList.empty")}
     />
   );
 }

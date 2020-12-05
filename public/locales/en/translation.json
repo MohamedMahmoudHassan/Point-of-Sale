@@ -14,7 +14,8 @@
     "quantity": "Quantity",
     "completeSale": "Complete Sale",
     "saveAsDraft": "Save As Draft",
-    "cancelSale": "Cancel Sale"
+    "cancelSale": "Cancel Sale",
+    "empty": "No Sales"
   },
   "items": {
     "items": "Items",
@@ -25,14 +26,16 @@
       "category": { "label": "Category", "warning": "Input valid category" },
       "price": { "label": "Price", "warning": "Input valid number" },
       "inStock": { "label": "In Stock", "warning": "Input valid number" },
-      "image": { "label": "Image" }
+      "image": { "label": "Image" },
+      "empty": "No Items"
     },
     "categoriesList": {
       "addCategory": "Add Category",
       "categoriesList": "Categories List",
       "name": { "label": "Name", "warning": "Input valid category name" },
       "noOfItems": { "label": "No. of Items", "warning": "Input valid number" },
-      "image": { "label": "Image" }
+      "image": { "label": "Image" },
+      "empty": "No Categories"
     }
   },
   "stores": {
@@ -42,7 +45,8 @@
       "storesList": "Stores List",
       "name": { "label": "Name", "warning": "Input valid store name" },
       "noOfCategories": { "label": "No. of Categories", "warning": "Input valid number" },
-      "noOfItems": { "label": "No. of Items", "warning": "Input valid number" }
+      "noOfItems": { "label": "No. of Items", "warning": "Input valid number" },
+      "empty": "No Stores"
     }
   },
   "formButtons": {

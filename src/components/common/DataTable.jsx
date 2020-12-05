@@ -12,7 +12,8 @@ export default function DataTable({
   navTo,
   clickable,
   withSelection,
-  withButtons
+  withButtons,
+  emptyText
 }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -52,7 +53,7 @@ export default function DataTable({
         columns={columns}
         dataSource={data}
         loading={loading}
-        locale={DataTableLocale()}
+        locale={DataTableLocale({ emptyText })}
         rowSelection={
           withSelection && {
             type: "checkbox",

@@ -14,7 +14,7 @@ export default function Home() {
       <Button type="dashed" onClick={test}>
         Test
       </Button>
-      {showTestComp && <TestComp />}
+      <TestComp />
     </div>
   );
 }

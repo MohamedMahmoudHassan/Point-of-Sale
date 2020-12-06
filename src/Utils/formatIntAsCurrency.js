@@ -22,5 +22,6 @@ export default value => {
     value = toInteger(value / 1000);
   }
 
-  return ret.reverse().join();
+  if (!ret.length) return "";
+  return `${ret.reverse().join()}.00`;
 };

@@ -1,34 +1,19 @@
-import React from "react";
-import { List, Card } from "antd";
+import React, { useState, useContext, useEffect } from "react";
+import Receipt from "../receipts/Receipt";
+import DataContext from "./../context/dataContext";
+import salesAPI from "../../api/sales";
 
 export default function TestComp() {
-  const data = [
-    {
-      title: "Title 1"
-    },
-    {
-      title: "Title 2"
-    },
-    {
-      title: "Title 3"
-    },
-    {
-      title: "Title 4"
-    },
-    {
-      title: "Title 5"
-    }
-  ];
+  const [sale, setSale] = useState({});
+  const { store } = useContext(DataContext);
 
-  return (
-    <List
-      grid={{ gutter: 16, column: 4 }}
-      dataSource={data}
-      renderItem={item => (
-        <List.Item>
-          <Card title={item.title}>{item.title}</Card>
-        </List.Item>
-      )}
-    />
-  );
+  useEffect(() => {
+    populateSale();
+  }, [store]);
+
+  const populateSale = async () => {
+    const data = await salesAPI.getSale("5fcba90fd8bc402ab4952c54");
+    setSale(data);
+  };
+  return <Receipt seller="Mohamed" customer="Test" storeName="Restaurant" sale={sale} />;
 }

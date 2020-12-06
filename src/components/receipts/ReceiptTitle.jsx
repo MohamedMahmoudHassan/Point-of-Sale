@@ -6,10 +6,7 @@ export default function ReceiptTitle({ total }) {
   const { t } = useTranslation();
   const styles = {
     container: {
-      alignItems: "center",
-      justifyContent: "center",
-      display: "flex",
-      flexDirection: "column"
+      textAlign: "center"
     }
   };
   return (

@@ -9,14 +9,18 @@ export default function Receipt({ sale, ...mainInfo }) {
   const styles = {
     container: {
       width: "100%",
-      height: 600,
+      height: "auto",
       backgroundColor: "#f0f0f0",
-      alignItems: "center",
-      justifyContent: "center",
-      display: "flex",
-      flexDirection: "column"
+      padding: 30
     },
-    receipt: { width: 400, backgroundColor: "white", padding: 15 }
+    receipt: {
+      width: 350,
+      height: "auto",
+      margin: "0 auto",
+      position: "relative",
+      backgroundColor: "white",
+      padding: 15
+    }
   };
 
   return (

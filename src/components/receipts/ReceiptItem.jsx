@@ -4,24 +4,20 @@ import formatIntAsCurrency from "../../Utils/formatIntAsCurrency";
 export default function ReceiptItem({ itemName, itemPrice, itemQuantity }) {
   const styles = {
     container: {
-      display: "flex",
-      justifyContent: "space-between",
-      fontWeight: 500
+      fontWeight: 500,
+      fontSize: 15
     },
-    itemName: { fontSize: 15, flexDirection: "column" },
     itemQuantity: { fontSize: 14, fontWeight: "normal" },
-    itemPrice: { fontSize: 15 }
+    itemPrice: { float: "right" }
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.itemName}>
-        <div>{itemName}</div>
-        <div style={styles.itemQuantity}>
-          {itemQuantity} x {formatIntAsCurrency(itemPrice)}
-        </div>
-      </div>
       <div style={styles.itemPrice}>{formatIntAsCurrency(itemPrice * itemQuantity)}</div>
+      <div>{itemName}</div>
+      <div style={styles.itemQuantity}>
+        {itemQuantity} x {formatIntAsCurrency(itemPrice)}
+      </div>
     </div>
   );
 }

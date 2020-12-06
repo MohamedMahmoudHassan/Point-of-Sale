@@ -8,19 +8,16 @@ export default function ReceiptItemsList({ items }) {
     }
   };
   return (
-    <div>
-      {items && (
-        <div style={styles.container}>
-          {items.map(item => (
-            <ReceiptItem
-              itemName={item.item.text}
-              itemPrice={item.item.price}
-              itemQuantity={item.quantity}
-              key={item.item.key}
-            />
-          ))}
-        </div>
-      )}
+    <div style={styles.container}>
+      {items &&
+        items.map(item => (
+          <ReceiptItem
+            itemName={item.item.text}
+            itemPrice={item.item.price}
+            itemQuantity={item.quantity}
+            key={item.item.key}
+          />
+        ))}
     </div>
   );
 }
